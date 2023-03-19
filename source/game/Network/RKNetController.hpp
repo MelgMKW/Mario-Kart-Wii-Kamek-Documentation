@@ -2,7 +2,7 @@
 #define _RKNETCONTROLLER_
 
 #include <kamek.hpp>
-#include <core/egg/Heap.hpp>
+#include <core/egg/mem/ExpHeap.hpp>
 #include <core/egg/Thread.hpp>
 
 /*
@@ -61,8 +61,8 @@ struct ConnectionUserData{
 
 struct RKNetControllerSub{
     u64 unknown_0x0; //a time for something
-    u32 connectionCount; //number of consoles connected
-    u32 playerCount;
+    u32 connectionCount; //0x8 number of consoles connected
+    u32 playerCount; //0xc
     u32 availableAids; //0x10 bit flags, 1 for connected, indexed 1 << aid
     u32 directConnectedAids; //0x14 bit flags, same as above
     u32 groupId; //0x18 group id for the room

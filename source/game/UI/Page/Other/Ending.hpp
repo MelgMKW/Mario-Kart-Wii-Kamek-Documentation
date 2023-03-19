@@ -36,7 +36,7 @@ class EndingMovieControl : public LayoutUIControl{
 }; //0x174
 
 namespace Pages{
-class StaffRoll : public Page{ //0X3d
+class StaffRoll : public Page{ //ID 0X3d
     StaffRoll(); //805cafd8
     ~StaffRoll() override; //805cb144 vtable 808b84dc
     void OnInit() override; //0x28 805cb1c4
@@ -64,7 +64,7 @@ static_assert(sizeof(StaffRoll) == 0xa68, "StaffRoll");
 
 
 
-class EndingMovie : public Page{ //0x3e
+class EndingMovie : public Page{ //ID 0x3e
     EndingMovie(); //805cbd88
     ~EndingMovie() override; //805cbe24 vtable 808b8424
     void OnInit() override; //0x28 805cbea4 

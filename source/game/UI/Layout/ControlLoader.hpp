@@ -5,6 +5,7 @@
 #include <game/File/BRCTR.hpp>
 
 class LayoutUIControl;
+
 class ControlLoader{
 public:
     explicit ControlLoader(LayoutUIControl *control); //805c2c18

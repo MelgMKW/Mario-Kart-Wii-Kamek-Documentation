@@ -3,6 +3,6 @@
 #include <game/KMP/SectionBase.hpp>
 
 typedef PointGroup ENPH;
-typedef struct Section<ENPH> ENPHSection;
+typedef struct KMPSection<ENPH> ENPHSection;
 
 #endif

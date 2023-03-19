@@ -3,7 +3,7 @@
 #include "types.hpp"
 #include <core/nw4r/ef.hpp>
 #include <core/nw4r/ut/List.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Disposer.hpp>
 
 using namespace nw4r;
 namespace EGG{

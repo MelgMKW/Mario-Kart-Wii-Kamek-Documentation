@@ -1,7 +1,7 @@
 #ifndef _RKNETPLAYERINFO_
 #define _RKNETPLAYERINFO_
 #include <kamek.hpp>
-#include <System/Identifiers.hpp>
+#include <game/System/Identifiers.hpp>
 
 struct RACEHEADER1Packet{
     u32 timer;

@@ -26,6 +26,7 @@ static_assert(sizeof(CtrlMenuCupSelectCup) == 0x15cc, "CtrlMenuCupSelectCup");
 
 class CtrlMenuCupSelectCourse : public LayoutUIControl{
 public:
+    static CourseId idxToCourseId[32]; //808a8410
     //ctor inlined
     ~CtrlMenuCupSelectCourse() override; //80627b64 vtable 808d31f8
     void InitSelf() override; //807e60dc 0x18

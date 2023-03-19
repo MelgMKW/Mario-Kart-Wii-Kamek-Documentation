@@ -10,7 +10,7 @@ typedef struct _GXColor{
 
 typedef struct _GXColorS10{
     s16 r, g, b, a;
-} GXColorS10;
+} GXColorS10; //0x8
 
 typedef struct _GXTexObj{
     u32 dummy[8];

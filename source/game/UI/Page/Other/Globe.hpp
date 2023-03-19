@@ -9,7 +9,7 @@
 //_sinit_ at 805e6b2c
 class FriendMatchingPlayer;
 namespace Pages{
-class Globe : public Page{ //0x95
+class Globe : public Page{ //ID 0x95
 public:
     class MessageWindow : public LayoutUIControl{
         //no ctor

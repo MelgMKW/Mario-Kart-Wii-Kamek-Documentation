@@ -15,6 +15,6 @@ struct POTI{ //routes
     //Points points each entry has an array of points
 };
 
-typedef struct Section<POTI> POTISection;
+typedef struct KMPSection<POTI> POTISection;
 
 #endif

@@ -26,7 +26,7 @@ public:
 static_assert(sizeof(CharaName) == 0x178,"LayoutUIControl");
 
 namespace Pages{
-class CharacterSelect: public Menu { //0x6B
+class CharacterSelect: public MenuInteractable { //ID 0x6B
 public:
     CharacterSelect(); //80626c10
     ~CharacterSelect() override; //8083f2cc vtable 808d92c0 
@@ -52,7 +52,7 @@ public:
     void OnBackPress(u32 hudSlotId); //8083e928
     static void func_8083ec28(); //some weird random stuff that stores different characters in racedata scenario 1
     static void func_8083ee1c(); //same, but without the random
-    static Page *GetPageById(PageId id = CHARACTER_SELECT); //80840dec only ever used with id = char select so it's here
+    static Page *GetPageById(PageId id = PAGE_CHARACTER_SELECT); //80840dec only ever used with id = char select so it's here
     
     //here the button refers to the backbutton since the char buttons are handled via external controls
     //onButtonClick    vtable = 0x808bd1d4 function = 8083e740

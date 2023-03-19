@@ -8,8 +8,9 @@
 
 //_sinit_ at 80842340
 namespace Pages{
-class CupSelect : public Menu{ //0x6e
+class CupSelect : public MenuInteractable{ //ID 0x6e
 public:
+    static CourseId idxToCourseId[32]; //808ad320
     CupSelect(); //80627684
     ~CupSelect() override; //80842240 vtable 808d94e8
     void OnInit() override; //80840efc 0x28
@@ -34,7 +35,7 @@ public:
     void OnButtonClick(PushButton *button, u32 hudSlotId); //808418e8 refers to back button
     void OnButtonDeselect(PushButton *button, u32 hudSlotId); //80841b50
     void OnBackPress(u32 hudSlotId); //80841b54
-    static Page *GetPageById(PageId id = CUP_SELECT); //80840dec only ever used with id = cup select so it's here
+    static Page *GetPageById(PageId id = PAGE_CUP_SELECT); //80840dec only ever used with id = cup select so it's here
     
     //for back button
     //onButtonClick    vtable = 0x808bd06c function = 808418e8

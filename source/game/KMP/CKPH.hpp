@@ -3,6 +3,6 @@
 #include <game/KMP/SectionBase.hpp>
 
 typedef PointGroup CKPH;
-typedef struct Section<CKPH> CKPHSection;
+typedef struct KMPSection<CKPH> CKPHSection;
 
 #endif

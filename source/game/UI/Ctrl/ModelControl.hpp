@@ -79,7 +79,7 @@ public:
     void SetModelPositionOnAnim(); //805f3830 called by Initself
     u8 hudSlotId; //0x174
     u8 unknown_0x175[3]; //might be padding
-    u32 variantType; //0x178 value based on menuId 805f5a98
+    u32 variantType; //0x178 value based on sectionId 805f5a98
     CharacterId curCharacter;
     u8 animationType; //0x180 0 = fade in 1 = fade out 
     float unknown_0x184; //some sort of scale factor for the transition

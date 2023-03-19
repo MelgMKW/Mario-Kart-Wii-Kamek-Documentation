@@ -137,6 +137,7 @@ public:
     EGG::TDisposer<LakituController> disposer; //8071e1d8 vtable 808c94bc
     virtual ~LakituController(); //8071e390 vtable 808c94b0 at 0x10
     void Init(); //8071e638
+    void Update(); //8071e6c0
     LakituControllerPlayer *lakituControllerPlayers[4]; //lakitu player, one per local player
     u32 localPlayerCount ; //8071e610
 }; //total size 0x28

@@ -79,12 +79,12 @@ static_assert(sizeof(MessageSelectControl) == 0xAC4, "MessageSelectControl");
 
 namespace Pages{
 
-class FriendRoomWaiting : public Page{ //0x9b
+class FriendRoomWaiting : public Page{ //ID 0x9b
 public:
     FriendRoomWaiting(); //805dd330
     ~FriendRoomWaiting(); //805dd38c vtable 808b8df8
     PageId GetNextPage() const override; //0x10 805de844
-    int func_0x14() override; //0x14 805de84c
+    int IsHomeMenuWorking() override; //0x14 805de84c
     void OnInit() override; //0x28 805dd418
     void OnActivate() override; //0x30 805dd5ac
     void OnDeactivate() override; //0x34 805dd724
@@ -102,7 +102,7 @@ public:
 }; 
 static_assert(sizeof(FriendRoomWaiting) == 0x364, "FriendRoomWaiting");
 
-class FriendRoomManager : public Page{ //0x9c
+class FriendRoomManager : public Page{ //ID 0x9c
 public:
     FriendRoomManager(); //805d9b38
     ~FriendRoomManager() override; //805d9bcc vtable 808b8f2c
@@ -139,7 +139,7 @@ public:
 }; //0x2c68
 static_assert(sizeof(FriendRoomManager) ==  0x2c68, "FriendRoomManager");
 
-class FriendRoom : public Page{ //0x9d
+class FriendRoom : public Page{ //ID 0x9d
 public:
     FriendRoom(); //805d7f78
     ~FriendRoom() override; //805d8160 vtable 808b8fd8
@@ -179,7 +179,8 @@ static_assert(sizeof(FriendRoom) == 0xdc4, "FriendRoom");
 
 class FriendRoomMessages;
 
-class FriendRoomMessages : public Page{
+class FriendRoomMessages : public Page{ //ID 0x9e
+public:
     FriendRoomMessages(); //805dbd94
     ~FriendRoomMessages() override; //805dc034 vtable 808b8e5c
     void OnInit() override; //0x28 805dc104
@@ -196,12 +197,12 @@ class FriendRoomMessages : public Page{
     void OnBackButtonClick(CtrlMenuBackButton *backButton, u32 hudSlotId); //805dd2dc
     void OnBackPress(u32 hudSlotId);  //805dd318
     void End(); //805dca9c sets animLength and isEnding
-    PtmfHolder_2A<FriendRoomMessages, void, PushButton*, u32> *onMessageButtonClickHandler; //0x44 805dcc70
-    PtmfHolder_2A<FriendRoomMessages, void, PushButton*, u32> *onModeButtonClickHandler; //0x58 805dcd78
-    PtmfHolder_2A<FriendRoomMessages, void, PushButton*, u32> *onAddFriendsButtonClickHandler; //0x6c 805dce80
-    PtmfHolder_2A<Page, void, SheetSelectControlScaleFade*, u32> *onRightArrowPressHandler; //0x80 805dd0c8
-    PtmfHolder_2A<Page, void, SheetSelectControlScaleFade*, u32> *onLeftArrowPressHandler; //0x94 805dd1d4
-    PtmfHolder_2A<FriendRoomMessages, void, CtrlMenuBackButton*, u32> *onBackButtonClick; //0xa8 805dd2dc
+    PtmfHolder_2A<FriendRoomMessages, void, PushButton*, u32> onMessageButtonClickHandler; //0x44 805dcc70
+    PtmfHolder_2A<FriendRoomMessages, void, PushButton*, u32> onModeButtonClickHandler; //0x58 805dcd78
+    PtmfHolder_2A<FriendRoomMessages, void, PushButton*, u32> onAddFriendsButtonClickHandler; //0x6c 805dce80
+    PtmfHolder_2A<Page, void, SheetSelectControlScaleFade*, u32> onRightArrowPressHandler; //0x80 805dd0c8
+    PtmfHolder_2A<Page, void, SheetSelectControlScaleFade*, u32> onLeftArrowPressHandler; //0x94 805dd1d4
+    PtmfHolder_2A<FriendRoomMessages, void, CtrlMenuBackButton*, u32> onBackButtonClick; //0xa8 805dd2dc
     PtmfHolder_1A<Page, void, u32> onBackPress; //0xbc 805dd318
     ControlsManipulatorManager manipulatorManager; //0xd0
     LayoutUIControlScaleFade messageBase; //0x2f4
@@ -210,7 +211,11 @@ class FriendRoomMessages : public Page{
     LayoutUIControlScaleFade pageNumber; //0x1f28
     LayoutUIControl obiBottom; //0x209c
     CtrlMenuBackButton backButton; //0x2210
-    u8 unknown_0x2474[0x248c-0x2474];
+    MessageSelectControl *messagesPtrs[2]; //0x2474
+    u32 location; //0x247c messages = 0, mode selection = 1, add friends = 2
+    u32 msgCount; //0x2480
+    u32 pageCount; //0x2484
+    u32 curPageIdx; //0x2488
     bool isEnding; //0x248c
     u8 padding[3];
     float animLength; //0x2490
@@ -218,6 +223,6 @@ class FriendRoomMessages : public Page{
     u8 unknown_0x252c[0x2680-0x252c]; //0x252c
     
 }; //total size 0x2680
-//static_assert(sizeof(FriendRoomMessages) == 0x2680, "FriendRoomMessages");
+static_assert(sizeof(FriendRoomMessages) == 0x2680, "FriendRoomMessages");
 }//namespace Pages
 #endif

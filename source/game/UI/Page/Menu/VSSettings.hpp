@@ -12,7 +12,7 @@ Contributors:
 */
 //_sinit_ at 80853ca4
 namespace Pages{
-class VSSettings : public Menu{ //0x73
+class VSSettings : public MenuInteractable{ //ID 0x73
 public:
     VSSettings(); //0x806284c8
     ~VSSettings() override; //80853b10 vtable 0x808da3c8
@@ -38,7 +38,7 @@ public:
     void OnUpDownSelect(UpDownControl *control, u32 hudSlotId); //80853c74
     void OnTextChange(TextUpDownValueControl::TextControl *control, u32 hudSlotId); //80853a10
 
-    static Page *GetPageById(PageId id = VS_SETTINGS); //80852c80
+    static Page *GetPageById(PageId id = PAGE_VS_SETTINGS); //80852c80
     static void TriggerRadioPtmf(PtmfHolder_3A<Page, void, RadioButtonControl*, u32, s32>, RadioButtonControl *control, u32 hudSlotId, u32 buttonId); //80853c14
     static void TriggerUpDown2APtmf(PtmfHolder_2A<Page, void, UpDownControl*, u32>, UpDownControl *control, u32 hudSlotId); //80853c74
     static void TriggerUpDown3APtmf(PtmfHolder_3A<Page, void, UpDownControl*, u32, u32>, UpDownControl *control, u32 hudSlotId, u32 optionId); //80853be4

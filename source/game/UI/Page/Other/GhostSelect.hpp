@@ -17,7 +17,7 @@ Contributors:
 //_sinit_ at 8063a570
 
 namespace Pages{
-class GhostSelectSupporting : public Page { //0x70
+class GhostSelectSupporting : public Page { //ID 0x70
     GhostSelectSupporting(); //80638e88
     ~GhostSelectSupporting() override; //80638ecc vtable 808becd8
     PageId GetNextPage() const override; //8063a4cc
@@ -36,7 +36,7 @@ class GhostSelectSupporting : public Page { //0x70
 static_assert(sizeof(GhostSelectSupporting) == 0x5C,"GhostSelectSupporting");
 
 
-class GhostSelect : public Page { //0x71
+class GhostSelect : public Page { //ID 0x71
 public:
     GhostSelect(); //0x806395ec vtable 808bec2c
     ~GhostSelect() override; //0x8063982c

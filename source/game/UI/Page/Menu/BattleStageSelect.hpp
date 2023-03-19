@@ -9,7 +9,7 @@
 
 //_sinit_ at 8083d42c
 namespace Pages{
-class BattleStageSelect : public Menu{ //0x79 
+class BattleStageSelect : public MenuInteractable{ //ID 0x79 
 public:
     BattleStageSelect(); //80629954
     ~BattleStageSelect() override; //8083d334 vtable 808d9228
@@ -34,7 +34,7 @@ public:
     void UpdateBottomText(); //8083cfe4
     void OnTimeout(); //8083d1f4 ends page and loads 0x92 (Stage votes)
     void LoadNextPage(CtrlMenuBattleStageSelectStage *control, PushButton *stageButton, u32 hudSlotId); //8083cfe8
-    static Page *GetPageById(PageId id = BATTLE_STAGE_SELECT); //8083cb58
+    static Page *GetPageById(PageId id = PAGE_BATTLE_STAGE_SELECT); //8083cb58
 
     //here the button refers to the back button as the Stage buttons are handled via extern controls
     //onButtonClick 0x658 vtable 808bd054 8083d11c

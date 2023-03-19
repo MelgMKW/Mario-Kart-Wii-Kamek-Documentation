@@ -14,7 +14,7 @@ Contributors:
 
 //_sinit_ at 8084ba10
 namespace Pages{
-class MultiDriftSelect : public Menu{ //0x82
+class MultiDriftSelect : public MenuInteractable{ //ID 0x82
 public:
     MultiDriftSelect(); //8062b8bc
     ~MultiDriftSelect() override; //8084b984 vtable 808d9bc8
@@ -38,7 +38,7 @@ public:
     void OnBackPress(u32 hudSlotId); //8084b7f4
 
 
-    static Page *GetPageById(PageId id = MULTIPLAYER_DRIFT_SELECT); //8084ba24
+    static Page *GetPageById(PageId id = PAGE_MULTIPLAYER_DRIFT_SELECT); //8084ba24
 
     //onButtonClick function = 8084b500 (onClick)
     //onButtonSelect offset = 0x64 call is virtual (onSelect)

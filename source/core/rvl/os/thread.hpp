@@ -58,5 +58,6 @@ extern "C"{
     void OSInitMessageQueue(OSMessageQueue *queue, OSMessage* msgArray, s32 msgCount );
     void OSYieldThread();
     void CancelThread();
+    void OSResumeThread(OSThread *thread);
 }
 #endif

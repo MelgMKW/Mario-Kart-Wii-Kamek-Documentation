@@ -45,7 +45,7 @@ class TextPaneHandler{
     TextPaneHandler(); //805cda34
     ~TextPaneHandler(); //805cda50
     void Init(lyt::TextBox *pane); //805cdbe4
-    void SetMessage(BMGHolder *curFileBmgs, BMGHolder *commonBmgs, TextInfo *pageText); //805cdd00
+    void SetMessage(BMGHolder *curFileBmgs, BMGHolder *commonBmgs, u32 bmgId, const TextInfo *pageText = NULL); //805cdd00
     void ResetMessage(); //805cedcc
     void Draw(lyt::DrawInfo *drawInfo); //805cee08
     lyt::TextBox *pane; //0
@@ -80,7 +80,7 @@ class TextMgr{
     static void DestroyInstance(); //805cdb68
     static TextMgr sInstance; //0x809c1be0
     GlobalTextHandler *globalTextHandler; 
-    int *curSceneDuration; 
+    int *curSectionDuration; 
     MiiGroup *globalMiiGroup; 
 };
 

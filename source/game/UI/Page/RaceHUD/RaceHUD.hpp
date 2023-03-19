@@ -14,7 +14,7 @@ class RaceHUD: public Page {
 public:
     //ctor inlined
     static RaceHUD *sInstance;
-    ~RaceHUD() override; //80624764 vtable 0x808da710
+    ~RaceHUD() override; //80624764 vtable 808da710
     PageId GetNextPage() const override; //80633510
     void func_0x20() override; //80858a34
     void OnInit() override; //80856278

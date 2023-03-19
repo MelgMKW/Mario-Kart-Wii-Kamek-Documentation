@@ -10,7 +10,7 @@ Contributors:
 */
 //_sinit_ at 80601284
 namespace Pages{
-class Options : public Page{ //0xC0
+class Options : public Page{ //ID 0xC0
 public:
     Options(); //805fd518
     ~Options() override; //805fd638 vtable 808ba3ec
@@ -38,7 +38,7 @@ public:
 }; //total size 0xd68
 static_assert(sizeof(Options) == 0xD68,"OptionsPage");
 
-class WiFiOptions : public Page { //0xC1
+class WiFiOptions : public Page { //ID 0xC1
     WiFiOptions(); //805fdaa8
     ~WiFiOptions() override; //805fdbd8 vtable 808ba370
     PageId GetNextPage() const override; //0x10 8060104c
@@ -63,7 +63,7 @@ class WiFiOptions : public Page { //0xC1
 };
 static_assert(sizeof(WiFiOptions) == 0x1210,"WifiOptionsPage");
 
-class OptionExplanation : public Page{//0xc2 a message box with explanations about the upcoming OptionBox, and a next button
+class OptionExplanation : public Page{//ID 0xc2 a message box with explanations about the upcoming OptionBox, and a next button
     OptionExplanation(); //805fe128
     ~OptionExplanation() override; //805fe240 vtable 808ba2f4
     void OnInit() override; //0x28 805fe2e0
@@ -84,7 +84,7 @@ class OptionExplanation : public Page{//0xc2 a message box with explanations abo
 };
 static_assert(sizeof(OptionExplanation) == 0xa34,"FlagExplanationPage");
 
-class OptionChoice : public Page{ //0xc3 (2used buttons) and 0xc4(3 buttons), a message box with yes/no buttons
+class OptionChoice : public Page{ //ID 0xc3 (2used buttons) and ID 0xc4(3 buttons), a message box with yes/no buttons
 // "master" page inits and sets the controls to the correct values
     OptionChoice(); //805fe5f8
     ~OptionChoice() override; //805fe728 vtable 808ba278
@@ -115,7 +115,7 @@ class OptionChoice : public Page{ //0xc3 (2used buttons) and 0xc4(3 buttons), a 
 };
 static_assert(sizeof(OptionChoice) == 0xef0, "BoxWith3ButtonsPage");
 
-class RegionOptions : public Page {//0xc5
+class RegionOptions : public Page {//ID 0xc5
     RegionOptions(); //805feda4
     ~RegionOptions() override; //805feefc vtable 808ba1fc
     PageId GetNextPage() const override; //0x10 805ff134
@@ -138,7 +138,7 @@ class RegionOptions : public Page {//0xc5
 }; //0xa44
 static_assert(sizeof(RegionOptions) == 0xa44, "RegionOptions");
 
-class MasterOptions : public Page{ //0xc6 chooses which option to load depending on the menu and which button was pressed in the generic box pages
+class MasterOptions : public Page{ //ID 0xc6 chooses which option to load depending on the section and which button was pressed in the generic box pages
     //0xc2 = choice, 0xc3 and c4 = choice, 0xc7 = waiting, 0xc8 = choice saved
     MasterOptions(); //805ff328
     ~MasterOptions() override; //805ff3a4 vtable 808ba180

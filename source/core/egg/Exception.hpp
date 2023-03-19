@@ -2,7 +2,7 @@
 #define _EGG_EXCEPTION_
 #include "types.hpp"
 #include <core/nw4r/db.hpp>
-#include <core/egg/Heap.hpp>
+#include <core/egg/mem/Heap.hpp>
 
 namespace EGG{
 class Exception{

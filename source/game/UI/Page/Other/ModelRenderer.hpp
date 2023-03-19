@@ -46,7 +46,7 @@ class ModelRendererValuesHolder{
 }; //total size 0x1980
 
 namespace Pages{
-class ModelRenderer : public Page{ //0x7f
+class ModelRenderer : public Page{ //ID 0x7f
 public:
     ModelRenderer(); //805f4fd0
     ~ModelRenderer() override; //805f51c8 vtable 808b9c00
@@ -62,8 +62,8 @@ public:
     void RequestBackgroundModel(BackGroundModelType type); //805f5984
     void SetBackgroundModelVisibility(bool isVisible); //805f5a30
     void LoadKartModelsByCharacter(u8 hudSlotId, CharacterId id); //805f570c loads the models for a character, called when a character is selected
-    static u32 GetVariantType(u8 hudSlotId); //805f5a98 depends on menu Id
-    static u32 GetModelCount(MenuId menuId); //805f5d58
+    static u32 GetVariantType(u8 hudSlotId); //805f5a98 depends on section Id
+    static u32 GetModelCount(SectionId sectionId); //805f5d58
     GXTexObj *GetModelTexObj(u8 hudSlotId); //805f5a4c for karts and characters
     GXTexObj *GetBackgroundModelTexObj() const; //805f5a70
     ManipulatorManager manipulatorManager; //0x44

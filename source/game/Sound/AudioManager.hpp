@@ -3,8 +3,8 @@
 
 #include <kamek.hpp>
 #include <core/egg/Audio.hpp>
-#include <core/egg/Heap.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Heap.hpp>
+#include <core/egg/mem/Disposer.hpp>
 #include <game/System/Identifiers.hpp>
 
 /*
@@ -50,7 +50,7 @@ public:
     bool HoldSound(snd::SoundHandle *handle, u32) const override; //78 807179c4
     bool HoldSound(snd::SoundHandle *handle, const char *string) override; //7c 807179f8
     void Init(EGG::Heap *heap); //80717150
-    void InitSelf(); //8071724c
+    void InitSelf(EGG::Heap *heap); //8071724c
     static void OpenBRSAR(); //80716d68
 
     EGG::TDisposer<AudioManager> disposer; //80716d94 vtable 808c91d0
@@ -107,7 +107,7 @@ class Audio3DMgr : public snd::Sound3DEngine{
     EGG::TDisposer<Audio3DMgr> disposer; //806f696c vtable 808c77f4
 };
 
-class AudioTrack : public EGG::AudioTrack{
+class SoundTrack : public EGG::AudioTrack{
    void Calc() override; //80717d2c vtable 808c91e0
    void SetVolume(float minValue, float maxValue); //80717d08 if curVol > max then set to max, opposite for min
 
@@ -119,7 +119,7 @@ class SoundPlayersVolumeMgr{
     static void DestroyStaTicInstance(); //8070f0e8
     ~SoundPlayersVolumeMgr(); //8070f19c
     EGG::TDisposer<SoundPlayersVolumeMgr> disposer; //8070eec8 vtable 808c8f90
-    static AudioTrack volumes[11]; //808b28b8 1 ramper = 1 soundPlayer
+    static SoundTrack volumes[11]; //808b28b8 1 ramper = 1 soundPlayer
 };
 
 class AudioHandle : public snd::SoundHandle{ //sound handle with a ctor
@@ -128,6 +128,7 @@ class AudioHandle : public snd::SoundHandle{ //sound handle with a ctor
 };
 
 class AudioHandleHolder{ //can hold 2 basicSound, for example on raceStart when the track brstm is waiting and countdown is playing
+public:
     static AudioHandleHolder *sInstance; //809c2328
     static AudioHandleHolder *GetStaticInstance(); //806f8648
     static void DestroyStaticInstance(); //806f86f0
@@ -154,7 +155,7 @@ class MainSoundPlayerVolumeMgr{ //allows a finer control of soundplayer 0's volu
     static void DestroyStaticInstance(); //806f9b64
     ~MainSoundPlayerVolumeMgr();//806f9c18
     EGG::TDisposer<MainSoundPlayerVolumeMgr> disposer; //806f9990 vtable 808c78e0
-    AudioTrack volumes[6]; //their volume is multiplied and used to set SoundPlayer 0's volume
+    SoundTrack volumes[6]; //their volume is multiplied and used to set SoundPlayer 0's volume
     AudioHandle *curHandle; //0xb8
     u32 soundId; //0xbc
     float unknown_0xC0;
@@ -169,7 +170,7 @@ class AudioStreamsMgr{
     void Calc(); //806fa420
     EGG::TDisposer<AudioStreamsMgr> disposer; //806f9f80 vtable 808c78d4
     
-    AudioTrack streamsVolume[10]; //first 4 for the usual 4 streams, idk of a sound with 10 streams though
+    SoundTrack streamsVolume[10]; //first 4 for the usual 4 streams, idk of a sound with 10 streams though
     AudioHandle *curHandle; //0x1d0
     u8 streamCount; //1d4
     u8 padding[3];
@@ -193,7 +194,7 @@ class AudioReverbMgr {
     bool unknown_0x10;
     u8 padding[3];
     snd::detail::FxReverbHiParam params;
-    AudioTrack volumes[4];
+    SoundTrack volumes[4];
 }; //ac
 
 

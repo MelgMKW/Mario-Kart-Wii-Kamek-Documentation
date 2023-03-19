@@ -1,7 +1,7 @@
 #ifndef _NAND_
 #define _NAND_
 #include <kamek.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Disposer.hpp>
 #define NAND_MAX_PATH 64
 #define NAND_MAX_NAME 12
 

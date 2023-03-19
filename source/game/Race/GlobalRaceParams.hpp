@@ -1,7 +1,7 @@
 #ifndef _GLOBALRACEPARAMS_
 #define _GLOBALRACEPARAMS_
 #include <kamek.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Disposer.hpp>
 #include <game/System/Camera.hpp>
 #include <game/System/Timer.hpp>
 #include <game/Visual/Model/ModelDirector.hpp>

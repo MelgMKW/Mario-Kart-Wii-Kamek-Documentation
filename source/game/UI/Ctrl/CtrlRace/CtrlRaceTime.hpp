@@ -32,9 +32,9 @@ public:
     static bool IsTimerInvalid(Timer *timer); //807f8360
     static void ResetTimer(Timer *timer, u16 minutes, u8 seconds, u16 milliseconds); //807f8380
     static PageId GetParentPageId(Page *page); //807f826c
-    static MenuId GetMenuId(); //807f8298
-    static Scene *GetCurScene(); //807f8288
-    static bool isPaused(Scene *curScene); //807f8280
+    static SectionId GetSectionId(); //807f8298
+    static Section *GetCurSection(); //807f8288
+    static bool isPaused(Section *curSection); //807f8280
     static void FillTimerGlobal(Timer *timer); //807f82ac global raceinfo timer
     static u8 GetPlayerMaxLap(u8 playerId); //807f7e64
     static bool hasPlayerFinished(u8 playerId); //807f82bc

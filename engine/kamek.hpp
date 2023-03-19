@@ -21,6 +21,7 @@
 
 #include <game/Math/Matrix.hpp>
 #include <game/Math/Vector.hpp>
+#include <core/rvl/os/OS.hpp>
 //just for usability in other structs, so that you don't have to type EGG::type every time
 
 template <class Subject, typename Ret>
@@ -125,23 +126,23 @@ struct PtmfHolder_3A : PtmfHolderBase_3A<Ret, A1, A2, A3> {
 #else
 #endif
 
-class MenuLoadHook {
+class SectionLoadHook {
 private:
     typedef void (Func)();
     Func *mFunc;
-    MenuLoadHook * mNext;
+    SectionLoadHook * mNext;
 
-    static MenuLoadHook * sHooks;
+    static SectionLoadHook * sHooks;
 
 public:
-    MenuLoadHook(Func * f) {
+    SectionLoadHook(Func * f) {
         mNext = sHooks;
         sHooks = this;
         mFunc = f;
     }
 
     static void exec() {
-        for (MenuLoadHook * p = sHooks; p; p = p->mNext)
+        for (SectionLoadHook * p = sHooks; p; p = p->mNext)
             p->mFunc();
     }
 };
@@ -211,6 +212,7 @@ public:
     }
 
     static void exec() {
+        int level = OSDisableInterrupts();
         for (BootHook * p = sHooks; p; p = p->mNext)
             if(p->mPriority == FIRST) p->mFunc();
 
@@ -222,6 +224,7 @@ public:
 
         for (BootHook * p = sHooks; p; p = p->mNext)
             if(p->mPriority == LOW) p->mFunc();
+        OSRestoreInterrupts(level);
     }
 };
 #endif

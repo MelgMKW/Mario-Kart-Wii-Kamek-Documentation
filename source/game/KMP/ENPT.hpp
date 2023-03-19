@@ -10,6 +10,6 @@ struct ENPT{
     u8 setting3;
 }; //total size 0x14
 
-typedef struct Section<ENPT> ENPTSection;
+typedef struct KMPSection<ENPT> ENPTSection;
 
 #endif

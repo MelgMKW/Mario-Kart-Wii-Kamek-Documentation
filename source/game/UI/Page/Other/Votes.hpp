@@ -26,7 +26,7 @@ public:
 };
 
 namespace Pages{
-class Vote : public Page{ //0x92
+class Vote : public Page{ //ID 0x92
 public:
     Vote(); //80642f90
     ~Vote() override; //806430bc vtable 808bf60c

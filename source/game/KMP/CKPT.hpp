@@ -11,6 +11,6 @@ struct CKPT{
     u8 next;
 };
 
-typedef struct Section<CKPT> CKPTSection;
+typedef struct KMPSection<CKPT> CKPTSection;
 
 #endif

@@ -17,7 +17,7 @@ struct SectionHeader{
 }; //0x8
 
 template<class T>
-struct Section{
+struct KMPSection{
     SectionHeader header;
     T entries;
 };

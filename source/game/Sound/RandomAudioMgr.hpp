@@ -1,7 +1,7 @@
 #ifndef _RANDOMAUDIOMGR_
 #define _RANDOMAUDIOMGR_
 #include <kamek.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Disposer.hpp>
 #include <game/System/Random.hpp>
 
 class AudioRandomMgr : public Random{ //is used to get 12 seeds 809c4740 + 4728[id] which impact character sounds etc...

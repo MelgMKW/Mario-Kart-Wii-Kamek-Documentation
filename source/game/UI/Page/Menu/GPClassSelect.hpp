@@ -5,7 +5,7 @@
 
 //_sinit_ at 808401d0
 namespace Pages{
-class GPClassSelect : public Menu{ //0x6a
+class GPClassSelect : public MenuInteractable{ //ID 0x6a
     GPClassSelect(); //80626950
     ~GPClassSelect() override; //80840138 vtable 808d9398
     void OnInit() override; //8083f4a8 0x28
@@ -26,7 +26,7 @@ class GPClassSelect : public Menu{ //0x6a
     void OnButtonDeselect(PushButton *button, u32 hudSlotId); //8083fbb4
     void OnBackPress(u32 hudSlotId); //8083fbb8
 
-    static Page *GetPageById(PageId id = GRAND_PRIX_CLASS_SELECT);
+    static Page *GetPageById(PageId id = PAGE_GP_CLASS_SELECT);
 
     //onButtonClick    vtable = 0x808bd1ec function = 8083f988
     //onButtonSelect   vtable = 0x808bd1ec offset = 0x64 call is virtual

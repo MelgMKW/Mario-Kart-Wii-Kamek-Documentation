@@ -206,7 +206,33 @@ FollowFade__Q23EGG6EffectFv = 0x80222eb0
 SetMtx__Q23EGG6EffectFPQ23EGG9Matrix34f = 0x80223d80
 Update__Q23EGG6EffectFv = 0x80223f58
 
+#ProcessMeter
+vf_0x1c__Q23EGG15PerformanceViewFv = 0x80234a00
+__ct__Q23EGG12ProcessMeterFUi = 0x8023883c
+__dt__Q23EGG12ProcessMeterFv = 0x80239628
+Run__Q23EGG12ProcessMeterFv = 0x80238d8c
+
+
+measureBeginFrame__Q23EGG12ProcessMeterFv  = 0x80238a94
+measureEndFrame__Q23EGG12ProcessMeterFv    = 0x80238d10
+measureBeginRender__Q23EGG12ProcessMeterFv = 0x80238d20
+measureEndRender__Q23EGG12ProcessMeterFv   = 0x80238d30
+callbackDrawSync__Q23EGG12ProcessMeterFUs  = 0x80238d40
+draw__Q23EGG12ProcessMeterFv               = 0x80239338
+setVisible__Q23EGG12ProcessMeterFb         = 0x80238f14
+isVisible__Q23EGG12ProcessMeterFv          = 0x80238f3c
+append__Q23EGG12ProcessMeterFPQ23EGG10CpuMonitor = 0x80238f48
+__vt__Q23EGG10CpuMonitor = 0x802a3d60
+show__Q23EGG10CpuMonitorFv = 0x80238750 
+hide__Q23EGG10CpuMonitorFv = 0x80238760
+measureBegin__Q23EGG10CpuMonitorFv = 0x802386dc
+measureEnd__Q23EGG10CpuMonitorFv = 0x80238750
+
 #Thread
+OnEnter__Q23EGG6ThreadFv = 0x80008e80
+OnExit__Q23EGG6ThreadFv = 0x80008e7c
+
+
 #TaskThread
 Create__Q23EGG10TaskThreadFiiUiPQ23EGG4Heap = 0x802428e8
 Request__Q23EGG10TaskThreadFPFPv_vPvUi = 0x80242c18
@@ -300,6 +326,7 @@ SetProjection__17RaceCameraManagerFUiUi = 0x80566020
 sInstance__10KartHolder = 0x809c18f8
 sInstance__10KartParams = 0x809c1918
 sInstance__12DriverParams = 0x809c191c
+Update__10KartHolderFv = 0x8058ffe8
 GetKart__10KartHolderFUi = 0x80590100
 IsLocal__4KartCFv = 0x80590650
 GetWheelPhysicsHolder__8KartBaseCFUi = 0x80590704
@@ -345,7 +372,7 @@ __ct__9UIControlFv = 0x8063ce6c
 __dt__9UIControlFv = 0x8063cfa0
 Init__9UIControlFv = 0x8063d004
 Update__9UIControlFv = 0x8063d044
-Draw__9UIControlFv = 0x8063D084
+Draw__9UIControlFUi = 0x8063D084
 InitSelf__9UIControlFv = 0x805BE600
 OnUpdate__9UIControlFv = 0x805bd2e0
 SetPositionAnim__9UIControlFfP16PositionAndScale = 0x8063d194
@@ -356,7 +383,6 @@ func_0x30__9UIControlFv = 0x8063d608
 func_0x34__9UIControlFv = 0x805bd2d8
 InitControlGroup__9UIControlFUi = 0x8063d268
 AddControl__9UIControlFUiP9UIControl = 0x8063d278
-
 PlaySound__9UIControlFUiUi = 0x8063d74c
 
 #LayoutUIControl
@@ -365,7 +391,7 @@ __ct__15LayoutUIControlFv = 0x8063d798
 __dt__15LayoutUIControlFv = 0x8063d8c0
 Init__15LayoutUIControlFv = 0x8063dac0
 Update__15LayoutUIControlFv = 0x8063DB00
-Draw__15LayoutUIControlFv = 0x8063DB84
+Draw__15LayoutUIControlFUi = 0x8063DB84
 GetRuntimeTypeInfo__15LayoutUIControlCFv = 0x80636bd0
 GetClassName__15LayoutUIControlCFv = 0x8063d788
 func_0x30__15LayoutUIControlFv = 0x8063E61c
@@ -397,19 +423,23 @@ PlayAnimationAtPercent__14AnimationGroupFUif = 0x8063ca98
 
 
 
-#MenuData
-sInstance__8MenuData = 0x809c1e38
-SetupMenuLoad = 0x805b9344
-LoadNextMenu__8MenuDataFv = 0x80634fbc
-StartTransition__8MenuDataFUiUi = 0x80635ac8
+#SectionMgr
+sInstance__10SectionMgr = 0x809c1e38
+SetupSectionLoad = 0x805b9344
+LoadSection__10SectionMgrFv = 0x80634fbc
+RequestSceneChange__10SectionMgrFUiQ34nw4r2ut5Color = 0x80635ac8
 
-#MenuDataPad
-GetCurrentSlotAndType__11MenuDataPadFUi = 0x8061b358
-GetType__11MenuDataPadFUi = 0x8061bfac
+#SectionMgrPad
+GetCurrentSlotAndType__10SectionPadFUi = 0x8061b358
+GetType__10SectionPadFUi = 0x8061bfac
 
-#Scene
-BuildPages__5SceneF6MenuId = 0x8062c3a4
-CreatePage__5SceneF6PageId = 0x80622d08
+#Section
+CreateSectionPages__7SectionF9SectionId = 0x8062c3a4
+CreateAndInitPage__7SectionF6PageId = 0x80622d08
+AddInitialLayers__7SectionF9SectionId = 0x80630094
+AddPageLayer__7SectionF6PageId = 0x80622da0
+Draw__7SectionFUi = 0x80622764
+
 
 #SavedGhostsHandler
 RequestBestTimeGhost__18SavedGhostsHandlerFUiUiUi8CourseIdb = 0x80621c78
@@ -445,6 +475,8 @@ SetPlayerBitfield__10PushButtonFUi = 0x805bdbd4
 #SheetSelect
 __ct__18SheetSelectControlFv = 0x80635ec4 
 __dt__18SheetSelectControlFv = 0x8063607c
+__vt__27SheetSelectControlScaleFade = 0x808BE908
+__dt__27SheetSelectControlScaleFadeFv = 0x805dbfdc
 Load__18SheetSelectControlFPCcPCcPCcPcPCcUibb = 0x80636120
 SetRightArrowHandler__18SheetSelectControlFP47PtmfHolder_2A<4Page,v,P18SheetSelectControl,Ui> = 0x806361e8
 SetLeftArrowHandler__18SheetSelectControlFP47PtmfHolder_2A<4Page,v,P18SheetSelectControl,Ui> = 0x806361f0
@@ -634,10 +666,10 @@ SetVotedCourseId__Q25Pages4VoteF8CourseId = 0x80643f48
 __ct__4PageFv = 0x8060197c
 GetClassName__4PageCFv = 0x805bb25c
 GetNextPage__4PageCFv = 0x805bb278
-func_0x14__4PageFv = 0x805bb254
-func_0x18__4PageFv = 0x805bb24c
-ChangeMenu__4PageF6MenuIdUif = 0x806024b0
-func_0x20__4PageFv = 0x80602530
+IsHomeMenuWorking__4PageFv = 0x805bb254
+IsDVDEnabled__4PageFv = 0x805bb24c
+ChangeSectionBySceneChange__4PageF9SectionIdUif = 0x806024b0
+ChangeSectionByReinit__4PageFv = 0x80602530
 OnInit = 0x80601ad8
 OnDispose__4PageFv = 0x805bb248
 OnActivate__4PageFv = 0x805c9888
@@ -650,17 +682,17 @@ BeforeControlUpdate__4PageFv = 0x805bb230
 AfterControlUpdate__4PageFv = 0x805bf2d8
 OnUpdate__4PageFv = 0x805bb22c
 OnResume__4PageFv = 0x805bb228
-OnMenuChange__4PageFv = 0x805bb224
+OnSectionChange__4PageFv = 0x805bb224
 func_0x5C__4PageFv = 0x805bb220
 GetRuntimeTypeInfo__4PageCFv = 0x805bed68
 InitControlGroup__4PageFUi = 0x8060245c
 AddControl__4PageFUcP9UIControlUi = 0x8060246c
 SetManipulatorManager__4PageFP18ManipulatorManager = 0x80602474
-EndStateAnimate__4PageFfUi = 0x80602488
+EndStateAnimated__4PageFfUi = 0x80602488
 AddPageLayer__4PageF6PageIdUi = 0x806025b0
 SetTransitionSound__4PageFUiUi = 0x80602d20
 PlaySound__4PageFUiUi = 0x80602cf8
-Setup__4PageF6PageId = 0x80601a60
+Init__4PageF6PageId = 0x80601a60
 transitionDelay__4Page = 0x80896830
 
 #FriendRoomPage
@@ -698,9 +730,26 @@ LoadPrevPage__Q25Pages4MenuFP10PushButton = 0x80837b4c
 LoadPrevPageWithDelay__Q25Pages4MenuFf = 0x80837a44
 LoadPrevPageById__Q25Pages4MenuF6PageIdP10PushButton = 0x80837934
 LoadNextPageById__Q25Pages4MenuF6PageIdP10PushButton = 0x80837720
-ChangeToPrevMenu__Q25Pages4MenuFPQ25Pages5Click = 0x808387ac
-ChangeMenuById__Q25Pages4MenuF6MenuIdP10PushButton = 0x80837e40 
+ChangeToPrevSection__Q25Pages4MenuFPQ25Pages5Click = 0x808387ac
+ChangeSectionById__Q25Pages4MenuF9SectionIdP10PushButton = 0x80837e40 
 HandleStartPress__Q25Pages4MenuFUi = 0x80838b14
+
+#RaceMenu
+__ct__Q25Pages8RaceMenuFv = 0x80858ca4
+__dt__Q25Pages8RaceMenuFv = 0x80624b38
+GetNextPage__Q25Pages8RaceMenuCFv = 0x80632414
+OnInit__Q25Pages8RaceMenuFv = 0x80858d60
+OnDispose__Q25Pages8RaceMenuFv = 0x80859fa4 
+OnActivate__Q25Pages8RaceMenuFv = 0x80859a2c
+OnDeactivate__Q25Pages8RaceMenuFv = 0x80859fa0
+BeforeEntranceAnimations__Q25Pages8RaceMenuFv = 0x80859f30
+BeforeExitAnimations__Q25Pages8RaceMenuFv = 0x80859f34
+AfterControlUpdate__Q25Pages8RaceMenuFv = 0x80859e98
+GetRuntimeTypeInfo__Q25Pages8RaceMenuCFv = 0x8085bd58
+SetNextPage__Q25Pages8RaceMenuF6PageId = 0x8063240c
+
+OnActivate__Q25Pages8RaceMenuFv = 0x80859a2c
+
 
 #CustomSettingsPanel
 VSSettingsStaticAddr = 0x809c4618
@@ -756,6 +805,7 @@ GetPageById__Q25Pages9CupSelectF6PageId = 0x80840dec
 LoadNextPage__Q25Pages9CupSelectFP20CtrlMenuCupSelectCupP10PushButtonUi = 0x80841744
 UpdateTrackList__23CtrlMenuCupSelectCourseFUi = 0x807e5ff0
 OnBackPress__Q25Pages9CupSelectFUi = 0x80841b54
+idxToCourseId__Q25Pages9CupSelect = 0x808ad320
 
 
 #course select
@@ -865,6 +915,19 @@ OnActivate__Q25Pages7WFCMainFv = 0x8064bc90
 GetRuntimeTypeInfo__Q25Pages7WFCMainCFv = 0x8064d690
 OnButtonSelect__Q25Pages7WFCMainFP10PushButtonUi = 0x8064bf4c
 
+#CountdownTimer
+__ct__Q25Pages14CountDownTimerFv = 0x8064fbdc 
+__dt__Q25Pages14CountDownTimerFv = 0x8064fc70
+IsHomeMenuWorking__Q25Pages14CountDownTimerFv = 0x80651ba8
+OnInit__Q25Pages14CountDownTimerFv = 0x8064fcfc
+OnDispose__Q25Pages14CountDownTimerFv = 0x8064fe30
+OnDeactivate__Q25Pages14CountDownTimerFv = 0x80650214
+AfterControlUpdate__Q25Pages14CountDownTimerFv = 0x80650274
+GetRuntimeTypeInfo__Q25Pages14CountDownTimerCFv = 0x80651bb0
+PrepareRace__Q25Pages14CountDownTimerFv = 0x80650e24
+SetModeTypes__Q25Pages14CountDownTimerFv = 0x80651854
+UpdateFriendParams__Q25Pages14CountDownTimerFv = 0x806515cc
+
 #VRPage
 __ct__Q25Pages2VRFv = 0x8064a3f4
 __dt__Q25Pages2VRFv = 0x8064a4e0
@@ -888,6 +951,7 @@ GetRuntimeTypeInfo__Q25Pages12GhostManagerCFv = 0x805e2720
 SetupGhostReplay__Q25Pages12GhostManagerFb = 0x805e1d5c
 SetupGhostRace__Q25Pages12GhostManagerFbbb = 0x805e1b04
 
+
 #OptionsPage 
 __ct__Q25Pages7OptionsFv = 0x805fd518
 __dt__Q25Pages7OptionsFv = 0x805fd638
@@ -901,7 +965,7 @@ OnButtonClick__Q25Pages7OptionsFP10PushButtonUi = 0x805fd90c
 
 #GhostList
 Init__9GhostListF8CourseId = 0x805e2200
-InitMenudata98Params__9GhostListFi = 0x805e2588
+InitSectionMgr98Params__9GhostListFi = 0x805e2588
 CompareEntries__9GhostListFP14GhostListEntryP14GhostListEntry = 0x805e2430
 
 #GhostGroup
@@ -919,8 +983,9 @@ DWC_AuthServer = 0x80386338
 SSL_Initialised = 0x80386d4c
 
 
-#Effects#
+#Effects
 Reset__10EffectsMgrFv = 0x8067b8f0
+Update__10EffectsMgrFv = 0x8067cb88
 __ct__13PlayerEffectsFP4Kart = 0x8068df98
 __dt__13PlayerEffectsFv = 0x8068e888
 LoadEffects__13PlayerEffectsFv = 0x8068f044
@@ -933,7 +998,7 @@ __ct__Q23EGG14EffectResourceFPvPv = 0x80225c98
 #Sound
 sInstance__12AudioManager = 0x809c2898
 
-#PlayerSound
+#KartSound
 HoldSound__9KartSoundFUiP11AudioHandle = 0x80709338
 PlayBRSARSound__16RaceSoundHandlerFUiUi = 0x80716608
 
@@ -942,6 +1007,9 @@ sInstance__12RaceAudioMgr = 0x809c27f8
 ChangeMusic__12RaceAudioMgrF9RaceState = 0x80711ac4
 trackToMusicIDTable__12RaceAudioMgr = 0x808a1d80
 
+#RSARSoundsPlayer
+sInstance__16RSARSoundsPlayer = 0x809c2850
+PlayEndRaceMenuButtonClickSound__20RaceRSARSoundsPlayerFv = 0x80715ff0
 
 #GLOBALRACEPARAMS
 sInstance__16GlobalRaceParams = 0x809c23f8
@@ -958,6 +1026,7 @@ matNamesMH = 0x808d1860
 
 #Item
 sInstance__11ItemManager = 0x809c3618
+Update__11ItemManagerFv = 0x80799850
 Update__19ItemHolderPlayerSubFv = 0x80795668
 Update__10ItemPlayerFv = 0x80797928
 ActivateMegaMushroom__10ItemPlayerFv = 0x807986b4
@@ -969,14 +1038,25 @@ Update__15PlayerInventoryFv = 0x807bc6e8
 RemoveItems__15PlayerInventoryFUi = 0x807bc97c
 SetItem__15PlayerInventoryF6ItemIdUc = 0x807bc940
 
+#Lakitu
+Update__16LakituControllerFv = 0x8071e6c0
+
 #Network
 sInstance__15RKNetController = 0x809c20d8
+sInstance__18RKNetSELECTHandler = 0x809c2100
+DestroyStaticInstance__18RKNetSELECTHandlerFv = 0x8065ff60
 Copy__12PacketHolderFPvUi = 0x8065a34c
 SetPlayerData__18RKNetSELECTHandlerF11CharacterId9kartId8CourseIdUcUc = 0x80660750
 DecideTrack__18RKNetSELECTHandlerFv = 0x80661ce8
 GetWinningCourse__18RKNetSELECTHandlerCFv = 0x80660450
 DecideTeams__18RKNetSELECTHandlerFRUi = 0x80662588
 GetCourseVote__18RKNetSELECTHandlerCFUcUc = 0x80660574
+IsPrepared__18RKNetSELECTHandlerFv = 0x80660710
+SetPlayerData__18RKNetSELECTHandlerF11CharacterId6KartId8CourseIdUcUc = 0x80660750
+AllocatePlayerIdsToAids__18RKNetSELECTHandlerFv = 0x80662034
+
+#Objects
+Update__12ObjectHolderFv = 0x8082a8f4
 
 ##Rel
 LoadFromU8 = 0x805411fc

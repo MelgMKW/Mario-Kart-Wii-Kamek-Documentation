@@ -45,7 +45,7 @@ namespace lyt{
         TexMap* GetTexMapAry(); //80080990
         ut::LinkList<AnimationLink, offsetof(AnimationLink, link)> animLinkList; //0x4
         GXColorS10 tevColours[3]; //0x10
-        ut::Color tevKColours[4];
+        ut::Color tevKColours[4]; //0x28
         detail::BitGXNums GXMemCap;
         detail::BitGXNums GXMemNum;
         void *GPMem; //0x40 starts with tex map array

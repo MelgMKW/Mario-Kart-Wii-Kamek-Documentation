@@ -2,14 +2,14 @@
 #define _ARCHIVE_
 #include <kamek.hpp>
 #include <core/nw4r/lyt/ArcResourceAccessor.hpp>
-#include <core/egg/Heap.hpp>
+#include <core/egg/mem/ExpHeap.hpp>
 #include <core/egg/Archive.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Disposer.hpp>
 #include <core/egg/Thread.hpp>
 #include <game/System/identifiers.hpp>
 class LayoutResources; 
 
-class ArchiveFile{
+class tArchiveFile{
 public:
 //Load functions will also mount the file
     ArchiveFile(); //80518cc0
@@ -146,8 +146,9 @@ public:
     int GetUIArchiveCount() const; //80541794
     void AttachLayoutDIR(nw4r::lyt::MultiArcResourceAccessor *resourceAccessor, const char *dir, LayoutResources *resources); //80541878
     void Unmount(ArchivesHolder *holder); //805411e4
-    
-    ArchivesHolder **archivesHolders; //use enum for array idx
+    void ProcessRequestsAndShutdown(); //80541ce0 Waits for all requests to finish then shuts down (bool isFree set to false)
+
+    ArchivesHolder **archivesHolders; //0x4 use enum for array idx
     ArchivesHolder kartModelsHolders[12]; //0x8 mr-allkart.szs, mdf_kart-mr.szs etc... in races
     ArchivesHolder unknown_Holders[12]; //0x158
     ArchiveFile contentArchives[4]; //0x2a8 contents/HomeButton.arc e.g.
@@ -156,7 +157,7 @@ public:
     AsyncCourseArchivesHolder asyncCourseLoader; //0x588 80541ac4 vtable 808b3c20
     KartArchivesHolder kartsModelsLoaders[4]; //0x5ac kart models one per hudslotid in menus
     u8 unknown_0x60c;
-    bool unknown_0x60d;
+    bool sceneIsExiting;
     u8 padding[2];
     EGG::Heap *heap_0x610;
     u8 unknown_0x614[4];

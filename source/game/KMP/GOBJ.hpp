@@ -14,6 +14,6 @@ struct GOBJ{
     u16 presenceFlags; //3a
 }; //0x3C
 
-typedef Section<GOBJ> GOBJSection;
+typedef KMPSection<GOBJ> GOBJSection;
 
 #endif

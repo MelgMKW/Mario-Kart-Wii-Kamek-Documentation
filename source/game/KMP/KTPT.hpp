@@ -9,6 +9,6 @@ struct KTPT{
     u16 unknown_0x1A;
 }; //total size 0x1C
 
-typedef struct Section<KTPT> KTPTSection;
+typedef struct KMPSection<KTPT> KTPTSection;
 
 #endif

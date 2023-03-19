@@ -4,6 +4,7 @@
 #include "types.hpp"
 #include <core/rvl/gx/GXEnum.hpp>
 #include <core/rvl/gx/GXStruct.hpp>
+#include <core/rvl/os/thread.hpp>
 
 extern "C" {
 void GXSetVtxDesc(GXAttr attr, GXAttrType type);
@@ -14,6 +15,7 @@ void GXBegin(GXPrimitive type, GXVtxFmt vtxfmt, u16 nverts);
 void GXSetCullMode(GXCullMode mode);
 void GXSetNumChans(u8 nChans);
 void GXSetChanCtrl(GXChannelID chan, bool enable, GXColorSrc amb_src, GXColorSrc mat_src, u32 light_mask, GXDiffuseFn diff_fn, GXAttnFn attn_fn);
+void GXSetChanMatColor(GXChannelID chan, GXColor color);
 void GXSetTevOp(GXTevStageID id, GXTevMode mode);
 void GXSetAlphaCompare(GXCompare comp0, u8 ref0, GXAlphaOp op, GXCompare comp1, u8 ref1);
 void GXSetAlphaUpdate(bool enable);
@@ -28,5 +30,8 @@ void GXSetProjection(const float mtx[4][4], GXProjectionType type);
 void GXLoadPosMtxImm(const float mtx[3][4], u32 pnidx);
 void GXSetCurrentMtx(u32 mtx);
 void GXLoadPosMtxIndx(u32 indx);
+OSThread *GetCurrentGXThread(); //8016d39c
+void GXSetDrawSync(u16 token); //sets a token, which will be stored in a reg when it reaches the end of the pipeline
+u16 GXReadDrawSync(); //if matches token set with, geometry has been rendered
 }
 #endif

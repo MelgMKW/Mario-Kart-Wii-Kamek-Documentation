@@ -123,9 +123,10 @@ public:
   u32 timer;
   u8 unknown_0x24[0x28-0x24];
   u32 stage; //0: intro camera, 1: countdown, 2: race
-  u8 unknown_0x2c[2];
+  u8 unknown_0x2c;
+  bool isSpectating; //0x2d
   bool canCountdownStart; //instantly true offline, needs syncing online
-  bool cutSceneMode; //true for modes 11 & 12
+  bool cutSectionMode; //true for modes 11 & 12
   u8 unknown_0x30[0x3c-0x30];
   void *kmg;
   u8 unknown_0x40[0x4c-0x40];

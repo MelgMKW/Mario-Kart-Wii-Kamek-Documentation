@@ -14,6 +14,6 @@ struct STGI{
     u16 speedMod; //usually 0 but for the code
 }; //total size 0xc
 
-typedef struct Section<STGI> STGISection;
+typedef struct KMPSection<STGI> STGISection;
 
 #endif

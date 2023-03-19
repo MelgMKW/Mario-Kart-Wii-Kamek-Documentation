@@ -26,7 +26,7 @@ public:
     ~SavedGhostsHandler(); //80620a8c
     void Reset(); //80620b04
     void Update(); //80620b40
-    void Init(); //80620c5c
+    SectionId Init(); //80620c5c, returns section if there's a savedata error, which leads to Creating new save/Corrupted Save etc..
     void Close(); //80620da4 called by "Can't Save" page for example
     void HandleRequest(); //80620dd8
     void HandleAllRequests(); //806211dc

@@ -28,7 +28,7 @@ public:
     virtual ~UIControl();       //0x8 8063cfa0 vtable 808bf008
     virtual void Init();        //0xc 8063d004
     virtual void Update();      //0x10 8063d044
-    virtual void Draw();        //0x14 8063d084 inferred from the name of the child overriden function
+    virtual void Draw(u32 isOpaque); //0x14 8063d084
     virtual void InitSelf();    //0x18 805be600 just a blr
     virtual void OnUpdate();    //0x1c 805bd2e0 just a blr
     virtual void SetPositionAnim(float curFrame, PositionAndScale *positionAndScale); //0x20 8063d194
@@ -69,7 +69,7 @@ public:
     ~LayoutUIControl() override; //8063d8c0 vtable 808befb4
     void Init() override; //0xc 8063dac0
     void Update() override; //0x10 8063db00
-    void Draw() override; //0x14 8063dd84
+    void Draw(u32 isOpaque) override; //0x14 8063dd84
     //virtual void InitSelf(); //0x18 805be600
     //virtual void OnUpdate(); //0x1c 805bd2e0
     //virtual void SetPositionAnim(float curFrame, PositionAndScale *positionAndScale); //0x20 8063d194

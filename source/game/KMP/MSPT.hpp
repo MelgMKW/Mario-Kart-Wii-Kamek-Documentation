@@ -9,6 +9,6 @@ struct MSPT{
     u16 unknown_0x1A;
 };
 
-typedef Section<MSPT> MSPTSection;
+typedef KMPSection<MSPT> MSPTSection;
 
 #endif

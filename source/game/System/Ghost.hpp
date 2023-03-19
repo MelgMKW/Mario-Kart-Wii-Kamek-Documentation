@@ -2,7 +2,7 @@
 #define _GHOST_
 
 #include <kamek.hpp>
-#include <core/egg/Heap.hpp>
+#include <core/egg/mem/Heap.hpp>
 #include <game/File/RKG.hpp>
 #include <game/System/identifiers.hpp>
 #include <game/System/Timer.hpp>
@@ -58,7 +58,7 @@ public:
 
 class GhostGroup{
 public:
-    GhostGroup(EGG::ExpHeap *heap, u32 type); //0x8051ce94 vtable 808b2d38
+    GhostGroup(EGG::Heap *heap, u32 type); //0x8051ce94 vtable 808b2d38
     virtual ~GhostGroup(); //8051cff8
     void DisableGhostData(u16 id); //8051d064 set isValid to false
     GhostData *GetGhostData(u16 id); //8051d084 only if valid

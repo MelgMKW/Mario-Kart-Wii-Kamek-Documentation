@@ -80,7 +80,7 @@ public:
 
 //_sinit_ at 80847d00
 namespace Pages{
-class KartSelect: public Menu { //0x6C
+class KartSelect: public MenuInteractable { //ID 0x6C
 public:
     KartSelect(); //
     ~KartSelect() override; //80847bf4 vtable 808d9880
@@ -106,7 +106,7 @@ public:
     u32 GetMinUnlockedKartsCount() const; //80844abc inlined
     static void func_8084745c(); //some weird random stuff that stores different karts in racedata scenario1, akin to char select
     static void func_80847590(); //same, but without the random 
-    static Page *GetPageById(PageId id = KART_SELECT); //80847d24 only ever used with id = veh select so it's here
+    static Page *GetPageById(PageId id = PAGE_KART_SELECT); //80847d24 only ever used with id = veh select so it's here
     static KartId kartUIOrderToIDArray[KARTCOUNT]; //808ad678
 
     void OnButtonClick(PushButton *button, u32 hudSlotId); //80846c1c

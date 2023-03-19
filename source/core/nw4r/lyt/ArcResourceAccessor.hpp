@@ -2,7 +2,7 @@
 #define _NW4R_LYTARCRESOURCEACCESSOR_
 #include "types.hpp"
 #include <core/nw4r/ut/LinkList.hpp>
-#include <core/nw4r/ut/Font.h>
+#include <core/nw4r/ut/Font.hpp>
 #include <core/rvl/arc/arc.h>
 #include <core/nw4r/lyt/ResourceAccessor.hpp>
 

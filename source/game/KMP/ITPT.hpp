@@ -9,7 +9,7 @@ struct ITPT{
     u16 setting2;
 }; //total size 0x14
 
-typedef struct Section<ITPT> ITPTSection;
+typedef struct KMPSection<ITPT> ITPTSection;
 
 
 #endif

@@ -62,7 +62,7 @@ class RecognizePadMenu : public RecognizePad {
     RecognizePadMenu(); //8061c53c
     ~RecognizePadMenu() override; //8061c5a4 vtable 808bb528
     const char* GetClassName() const override; //8061d1c8 0xc
-    int func_0x18() override; //8061c86c 0x18
+    bool IsDVDEnabled() override; //8061c86c 0x18
     void BeforeEntranceAnimations() override; //0x38 8061c628
     void AfterEntranceAnimations() override; //0x3c 8061c720
     void BeforeExitAnimations() override; //0x40 8061c76c

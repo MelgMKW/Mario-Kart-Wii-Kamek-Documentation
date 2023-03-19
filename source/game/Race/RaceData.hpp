@@ -14,7 +14,7 @@ References:
 #ifndef _RACEDATA_
 #define _RACEDATA_
 #include <kamek.hpp>
-#include <core/System/ParameterFile.hpp>
+#include <core/RK/ParameterFile.hpp>
 #include <game/Visual/Mii.hpp>
 #include <game/System/Identifiers.hpp>
 #define CHARACTERCOUNT 27
@@ -144,7 +144,7 @@ public:
     explicit RacedataScenario(RKG *rkg); //8052dbc8, never used - racedata's constructor does it inline
     virtual ~RacedataScenario(); //805300f4 vtable 808b3288
     u8 playerCount; //0x4
-    u8 pageCount; //0x5 equal to player count except for 3P where it's 4
+    u8 screenCount; //0x5 equal to player count except for 3P where it's 4
     u8 localPlayerCount; //0x6
     u8 unknown_0x7;
     RacedataPlayer players[12]; //0x8

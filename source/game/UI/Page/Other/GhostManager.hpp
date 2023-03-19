@@ -44,7 +44,7 @@ public:
     GhostData *GetGhostData(u32 entryIndex); //805e2500
     bool CheckIsNew(u32 entryIndex); //805e2528
     bool AreAllGhostsNew(); //805e2554
-    void InitMenudata98Params(s32 entryIndex); //805e2588
+    void InitSectionMgr98Params(s32 entryIndex); //805e2588
     GhostListEntry entries[38];
     u32 count; //0x260
     GhostManager *ghostManagerPage; //0x264
@@ -52,7 +52,7 @@ public:
 
 //_sinit_ at 805e272c
 namespace Pages{
-class GhostManager : public Page { //0xA7
+class GhostManager : public Page { //ID 0xA7
 public:
     GhostManager(); //805e0c38 vtable 0x808b9258
     ~GhostManager() override; //0x805e0cb8
@@ -62,7 +62,7 @@ public:
     void BeforeEntranceAnimations() override; //805e10f8
     void BeforeExitAnimations() override; //805e10fc
     void AfterControlUpdate() override; //805e1104
-    void OnMenuChange() override; //805e1108
+    void OnSectionChange() override; //805e1108
     int GetRuntimeTypeInfo() const override; //805e2720
 
     void UpdateState(); //805e1214
@@ -72,7 +72,7 @@ public:
     void RequestGhost(bool checkRKGValidity); //0x805e1998
     void SetupGhostRace(bool isStaffGhost, bool replaceGhostMiiByPlayer, bool disablePlayerMii);
     void SetupGhostReplay(bool isStaffGhosts); //805e1d5c
-    void LoadGhost(u32 r4); //stores something in menudata90 which ultimately leads to the nand ghost getting loaded
+    void LoadGhost(u32 r4);
     void UpdateStateToReplay();
     ManipulatorManager manager; //0x44
     GhostGroup *savedGhostGroups[4]; //0x54

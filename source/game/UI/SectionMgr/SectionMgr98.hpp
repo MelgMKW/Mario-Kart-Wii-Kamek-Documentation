@@ -1,20 +1,20 @@
-#ifndef _MENUDATA98_
-#define _MENUDATA98_
+#ifndef _SECTIONMGR98_
+#define _SECTIONMGR98_
 #include <kamek.hpp>
 #include <game/System/Identifiers.hpp>
 #include <game/Visual/Mii.hpp>
 
 struct PlayerCombo{
-    s32 selCharacter;
-    s32 selKart;
+    CharacterId selCharacter;
+    KartId selKart;
     s8 starRank;
     u8 unknown_0x9[0xC-0x9]; //passing most likely
 }; //total size 0xC
 
-class MenuData98{
+class SectionMgr98{
 public:
-    MenuData98(); //805e2f60
-    ~MenuData98(); //805e2ff8
+    SectionMgr98(); //805e2f60
+    ~SectionMgr98(); //805e2ff8
     void RandomizeVSTracks(); //805e32ec
 	u8 unknown_0x0[0x60];
 	u32 raceNumber; //0x60
@@ -48,6 +48,6 @@ public:
 	u8 licenseNum;
 	u8 unknown_0x4e9[0x510 - 0x4E9];
 }; //Total Size 0x510
-static_assert(sizeof(MenuData98) == 0x510, "MenuData98");
+static_assert(sizeof(SectionMgr98) == 0x510, "SectionMgr98");
 
 #endif

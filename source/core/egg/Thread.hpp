@@ -5,7 +5,7 @@
 #include <core/rvl/mtx/mtx.hpp>
 #include <core/nw4r/ut/LinkList.hpp>
 #include <core/nw4r/ut/List.hpp>
-#include <core/egg/Heap.hpp>
+#include <core/egg/mem/Heap.hpp>
 
 namespace EGG{
 class Thread {
@@ -14,7 +14,7 @@ public:
 	Thread(u32 stackSize, int msgCount, int priority, Heap* heap); //802432e0
 	virtual ~Thread(); //8024341c vtable 802a3fc0 
 	virtual void* Run(); //8024373c 
-	virtual void OnEnter(); //80008e80 just a blr
+	virtual void OnEnter(); //80008e80 just a blr, clearly inherits from a lower level class
 	virtual void OnExit(); //80008e7c just a blr
 
 	Heap *heap;

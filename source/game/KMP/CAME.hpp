@@ -21,6 +21,6 @@ struct CAME{
     float duration;
 }; //total size 0x48
 
-typedef struct Section<CAME> CAMESection;
+typedef struct KMPSection<CAME> CAMESection;
 
 #endif

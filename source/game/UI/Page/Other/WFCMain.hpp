@@ -14,7 +14,7 @@ class FriendStatusButton : public PushButton {
 }; //total size 0x25C
 
 namespace Pages{
-class WFCMain : public Page{
+class WFCMain : public Page{ //ID 0x8B
 public:
     WFCMain(); //8064b640
     ~WFCMain() override; //vtable 0x808bff44 8064b850

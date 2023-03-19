@@ -1,7 +1,7 @@
 #ifndef _SAVEDATAMANAGER_
 #define _SAVEDATAMANAGER_
 #include <kamek.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Disposer.hpp>
 #include <core/rvl/DWC/DWC.hpp>
 #include <game/System/Timer.hpp>
 #include <game/System/identifiers.hpp>

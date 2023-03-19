@@ -23,7 +23,7 @@ class LicenseButton : public PushButton{
 };
 
 namespace Pages{
-class LicenseSelect : public Page{ //0x65
+class LicenseSelect : public Page{ //ID 0x65
     LicenseSelect(); //805ea834
     ~LicenseSelect() override; //805eab00 vtable 808b984c
     PageId GetNextPage() const override; //0x10 805ee658
@@ -45,7 +45,7 @@ class LicenseSelect : public Page{ //0x65
     PtmfHolder_2A<Page, void, CtrlMenuBackButton*, u32> onBackButtonClickHandler; //0x6c 805ebc8c
     PtmfHolder_1A<Page, void, u32> onBackPressHandler; //0x80 805ebcd0
     PtmfHolder_2A<Page, void, Approve*, float> onNewLicenseApprove; //0x94 805ebce8
-    PtmfHolder_2A<Page, void, Approve*, float> unknown_0xA8; //0xa8 805ebd44 very similar to above but set next menu to 0x46 and not 0x45
+    PtmfHolder_2A<Page, void, Approve*, float> unknown_0xA8; //0xa8 805ebd44 very similar to above but set next section to 0x46 and not 0x45
     PtmfHolder_2A<Page, void, Approve*, float> onNewLicenseDisapprove; //0xbc 805ebcd0 triggered by page 52
     ControlsManipulatorManager controlManipulatorManager; //0xd0
     CtrlMenuPageTitleText titleText; //0x2f4
@@ -58,7 +58,7 @@ class LicenseSelect : public Page{ //0x65
 }; //total size 0x130c
 static_assert(sizeof(LicenseSelect) == 0x130c, "LicenseSelect");
 
-class LicenseChangeMii : public Page{ //0x66 comes after choose mii
+class LicenseChangeMii : public Page{ //ID 0x66 comes after choose mii
     LicenseChangeMii(); //805ebdac
     ~LicenseChangeMii() override; //805ebf68 vtable 808b97b8
     PageId GetNextPage() const override; //0x10 805ee644
@@ -84,7 +84,7 @@ class LicenseChangeMii : public Page{ //0x66 comes after choose mii
 }; //total size 0x6cc
 static_assert(sizeof(LicenseChangeMii) == 0x6cc, "LicenseChangeMii");
 
-class LicenseSettings : public Page{ //0x67
+class LicenseSettings : public Page{ //ID 0x67
     LicenseSettings(); //805ed4ec 
     ~LicenseSettings() override; //805ed70c vtable 808b973c
     PageId GetNextPage() const override; //0x10 805ee630
@@ -111,7 +111,7 @@ class LicenseSettings : public Page{ //0x67
 }; //total size 0x1138
 static_assert(sizeof(LicenseSettings) == 0x1138, "LicenseSettings");
 
-class LicenseErase : public Page{ //0x68
+class LicenseErase : public Page{ //ID 0x68
     LicenseErase(); //805eddf4
     ~LicenseErase() override; //805edf84 vtable 808b96b4
     PageId GetNextPage() const override; //0x10 805ee41c returns -1 

@@ -4,7 +4,7 @@ Stebler, CLF (main documentation), Melg
 #ifndef _ITEMMANAGER_
 #define _ITEMMANAGER_
 #include <kamek.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Disposer.hpp>
 #include <game/Item/Obj/ItemObj.hpp>
 #include <game/Item/ItemPlayer.hpp>
 #include <game/Race/Kart/KartPointers.hpp>

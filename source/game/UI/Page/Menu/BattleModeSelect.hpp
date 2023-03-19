@@ -5,7 +5,7 @@
 
 //_sinit_ at 8083bb38
 namespace Pages{
-class BattleModeSelect : public Menu{ //0x75
+class BattleModeSelect : public MenuInteractable{ //ID 0x75
     BattleModeSelect(); //80628b84
     ~BattleModeSelect() override; //8083baac vtable 808d9008
     void OnInit() override; //8083b1f0 0x28
@@ -24,7 +24,7 @@ class BattleModeSelect : public Menu{ //0x75
     void OnButtonClick(PushButton *button, u32 hudSlotId); //8083b8d0
     void OnButtonDeselect(PushButton *button, u32 hudSlotId); //8083b9e4
     void OnBackPress(u32 hudSlotId); //8083b9e8
-    static Page *GetPageById(PageId id = BATTLE_MODE_SELECT); //8085212c
+    static Page *GetPageById(PageId id = PAGE_BATTLE_MODE_SELECT); //8085212c
 
     //onButtonClick    vtable = 0x808bd1a4 function = 8083b8d0
     //onButtonSelect   vtable = 0x808bd1a4 offset = 0x64 call is virtual

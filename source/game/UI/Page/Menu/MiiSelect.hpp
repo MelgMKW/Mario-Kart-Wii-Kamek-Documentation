@@ -17,7 +17,7 @@ public:
 }; //0x174
 
 namespace Pages{
-class MiiSelect : public Menu{ //0x60
+class MiiSelect : public MenuInteractable{ //ID 0x60
     MiiSelect(); //8062635c
     ~MiiSelect() override; //80849450 vtable 808d99c0
     void OnInit() override; //80847e40 0x28
@@ -39,7 +39,7 @@ class MiiSelect : public Menu{ //0x60
     void OnRightArrowPress(SheetSelectControl *control, u32 hudSlotId); //80848be8
     void OnLeftArrowPress(SheetSelectControl *control, u32 hudSlotId); //80848d40
     void OnTabButtonClick(TabControl *control, u32 hudSlotId, u32 optionId); //80848e44
-    static Page *GetPageById(PageId id = MII_SELECT); //80849594
+    static Page *GetPageById(PageId id = PAGE_MII_SELECT); //80849594
     static void TriggerTabPtmf(PtmfHolder_3A<TabControl*, void, u32, u32, u32> *handler, TabControl*, u32, u32); //80849510
     static void TriggerSheetPtmf(PtmfHolder_2A<SheetSelectControl*, void, u32, u32> *handler, SheetSelectControl*, u32); //80849540
 

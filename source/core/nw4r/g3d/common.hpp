@@ -1,7 +1,7 @@
 #ifndef _NW4R_G3D_COMMON_
 #define _NW4R_G3D_COMMON_
 #include "types.hpp"
-#include <core/rvl/allocator.h>
+#include <core/rvl/mem/allocator.h>
 
 namespace nw4r{
 namespace g3d{

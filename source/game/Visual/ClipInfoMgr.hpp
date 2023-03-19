@@ -1,7 +1,7 @@
 #ifndef _CLIP_INFO_MGR_
 #define _CLIP_INFO_MGR_
 #include <kamek.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Disposer.hpp>
 
 /*
 Contributors:

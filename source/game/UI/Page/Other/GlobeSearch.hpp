@@ -45,11 +45,11 @@ class MatchingMessageWindow : public LayoutUIControl{
     void Hide(); //80607fb0
 }; //0x174
 
-class GlobeSearch : public Page{ //0x8f
+class GlobeSearch : public Page{ //ID 0x8f
     GlobeSearch(); //80608060
     ~GlobeSearch(); //80608194 vtable 808baad0
     PageId GetNextPage() const override; //8060a670
-    int func_0x14() override; //8060a678
+    int IsHomeMenuWorking() override; //8060a678
     void OnInit() override; //0x28 80608268
     void OnActivate() override; //0x30 80608494
     void BeforeEntranceAnimations() override; //0x38 80608d18

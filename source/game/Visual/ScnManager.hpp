@@ -1,8 +1,8 @@
 #ifndef _SCN_MANAGER_
 #define _SCN_MANAGER_
 #include <kamek.hpp>
-#include <core/egg/Disposer.hpp>
-#include <core/egg/Heap.hpp>
+#include <core/egg/mem/Disposer.hpp>
+#include <core/egg/mem/Heap.hpp>
 #include <core/nw4r/g3d.hpp>
 #include <core/egg/3D/Scn.hpp>
 #include <game/Visual/Fog.hpp>

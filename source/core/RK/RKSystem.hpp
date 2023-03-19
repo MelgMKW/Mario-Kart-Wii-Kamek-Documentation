@@ -1,11 +1,15 @@
 #ifndef _RKSYSTEM_
 #define _RKSYSTEM_
 #include "types.hpp"
-#include <core/egg/Heap.hpp>
+#include <core/egg/mem/ExpHeap.hpp>
 #include <core/egg/Audio.hpp>
+#include <core/egg/ProcessMeter.hpp>
+#include <core/egg/Display.hpp>
+#include <core/RK/RKSceneManager.hpp>
 
+//using namespace EGG;
 class GXRModeObj;
-class SceneManager;
+class SectionManager;
 
 struct Video{
     GXRModeObj *mode;
@@ -16,14 +20,15 @@ class RKSystem{
 public:
     static RKSystem mInstance; //802a4080
     static RKSystem *sInstance; //80385fc8
+    static RKSystem *GetStaticInstance(); //80008e84
     RKSystem(); //not a true ctor 800099cc
     virtual void func_vtable(); //80270bf0
     virtual Video *GetVideo(); //0x8
     virtual EGG::Heap *GetHeapSystem2(); //0xC
-    virtual void *GetDisplay(); //0x10
+    virtual EGG::AsyncDisplay *GetDisplay(); //0x10
     virtual void *GetXFBManager(); //0x14
-    virtual void *GetProcessMeter(); //0x18
-    virtual SceneManager *GetSceneManager(); //0x1C
+    virtual EGG::PerformanceView *GetPerformanceView(); //0x18
+    virtual SectionManager *GetSectionManager(); //0x1C
     virtual EGG::ExpAudioMgr *GetAudioManager(); //0x20
     void *MEM1ArenaLo;
     void *MEM1ArenaHi;
@@ -32,7 +37,7 @@ public:
     u32 memorySize; //0x14
     EGG::ExpHeap *EGGRootMEM1; //0x18
     EGG::ExpHeap *EGGRootMEM2;  //0x1C
-    EGG::ExpHeap *EGGRootDebug;
+    EGG::ExpHeap *EGGRootDebug; //0x20
     EGG::ExpHeap *EGGSystem;  //0x24
     void *heapSystem; //thread
     u32 unknown_0x2C; //just the start of mem1?
@@ -43,9 +48,9 @@ public:
     EGG::ExpAudioMgr *audioManager; //0x40
     Video *video; //0x44
     void *xfbManager; //0x48
-    void *asyncDisplay; //0x4c
-    void *processMeter; //0x50
-    SceneManager *sceneManager; //0x54
+    EGG::AsyncDisplay *asyncDisplay; //0x4c
+    EGG::ProcessMeter *processMeter; //0x50
+    RKSceneManager *sceneManager; //0x54
     EGG::ExpHeap *kpadWorkHeap;
     u32 unknown_0x5c;
     EGG::ExpHeap *relLinkHeap;

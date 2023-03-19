@@ -37,7 +37,7 @@ struct SELECTPacket{
     u64 timeReceived;
     SELECTPlayerData playersData[2]; //0x10
     u32 selectId; //0x20
-    u8 battleType;
+    u8 battleType; //0x24
     u32 teams : 24; //0x25 idk how to do an array of 2 bits variables
     u8 playerIdToAid[12]; //0x28
     u8 winningCourse; //0x34
@@ -51,7 +51,7 @@ static_assert(sizeof(SELECTPacket) == 0x38, "SELECTPacket");
 class RKNetSELECTHandler{
 public:
     static RKNetSELECTHandler *sInstance; //0x809c2100
-    static RKNetSELECTHandler *GetStaticInstance(); //8065fe8c
+    static RKNetSELECTHandler *GetStaticInstance(OnlineMode mode); //8065fe8c
     static void DestroyStaticInstance(); //8065ff60
     RKNetSELECTHandler(); //8066076c inlined
     ~RKNetSELECTHandler(); //806607f4
@@ -71,7 +71,11 @@ public:
     u8 SetPlayerData(CharacterId character, KartId kart, CourseId courseVote, u8 hudSlotId, u8 starRank); //80660750
     void DecideTrack(); //80661ce8
     void DecideTeams(u32 &teams); //80662290
-    OnlineMode mode; //from page 0x90 OnInit MenuId Switch
+    bool HasUnprocessedRecvPackets(); //8066068c
+    bool IsPrepared(); //80660710 checks if in phase 0
+    void AllocatePlayerIdsToAids(); //80662034
+    
+    OnlineMode mode; //from page 0x90 OnInit SectionId Switch
     u32 unknown_0x4;
     SELECTPacket toSendPacket; //0x8
     SELECTPacket receivedPackets[12]; //0x40

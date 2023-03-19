@@ -146,7 +146,7 @@ public:
     BaseLayout(); //805e82c4 inlined
     virtual ~BaseLayout(); //805e830c vtable 808b950c
     Pane *GetPaneByName(const char *paneName) const; //805e8368
-    void CreateResourceAcccessor(const char *folderName); //805e8380 inlined, looks in curScene's list else allocates it
+    void CreateResourceAcccessor(const char *folderName); //805e8380 inlined, looks in curSection's list else allocates it
     void Build(const char *lytName); //805e8528 inlined gets resource using accessor and then builds nw4r::lyt
     Layout layout; //from 0x4 to 0x24
     LayoutResourceAccessor *resources;    //0x24

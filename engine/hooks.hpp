@@ -121,5 +121,4 @@ int PatchRegion(){
 #define kmWriteRegionInstruction(address, instruction, region) \
 	static int kmIdentifier(Int, __COUNTER__) = PatchRegion<address, instruction, region>()
 
-
 #endif

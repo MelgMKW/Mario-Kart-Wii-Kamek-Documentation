@@ -9,6 +9,6 @@ struct CNPT{
     u16 type; //straight, curved, curved and slow
 };
 
-typedef struct Section<CNPT> CNPTSection;
+typedef struct KMPSection<CNPT> CNPTSection;
 
 #endif

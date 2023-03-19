@@ -5,7 +5,7 @@
 #include <core/nw4r/snd.hpp>
 #include <core/rvl/os/thread.hpp>
 #include <core/rvl/arc/arc.h>
-#include <core/egg/Heap.hpp>
+#include <core/egg/mem/Heap.hpp>
 
 
 namespace EGG{

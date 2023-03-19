@@ -110,7 +110,7 @@ public:
     void Activate(u32 hudSlotId, u32 localPlayerBitfield2, bool isMultiplayer) override; //805ef5a8
     void OnReset() override; //0x24 805ef688
     void SetGlobalHandler(Action input, PtmfHolder_1A<Page, void, u32> *handler, bool isTriggered); //805ef768
-    PtmfHolder_2A<LayoutUIControl, void, u32, u32> *globalHandlers[9]; //0x10 805f15cc, first arg is buttin info id
+    PtmfHolder_1A<Page, void, u32> *globalHandlers[9]; //0x10 805f15cc, first arg is buttin info id
     bool isTriggered[9]; //0x34
     u8 unknown_0x3D[3]; //padding
     ButtonInfo buttoninfoArray[5]; //0x40 5th corresponds to inputdata's dummy controller

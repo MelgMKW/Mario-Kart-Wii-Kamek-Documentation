@@ -6,7 +6,7 @@
 namespace EGG{
 class Fog{
 public:
-    Fog();
+    Fog(); //80226f04
     virtual void vf_0x08(); //802a3028
     virtual void vf_0x0c();
     virtual void vf_0x10();

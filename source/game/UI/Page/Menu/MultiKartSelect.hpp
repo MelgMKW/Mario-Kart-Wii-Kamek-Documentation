@@ -25,7 +25,7 @@ class MultiKartBox : public LayoutUIControl{ //doesn't seem to have any discerne
 
 //_sinit_ at 8084a9a0
 namespace Pages{
-class MultiKartSelect : public Menu{ //0x81
+class MultiKartSelect : public MenuInteractable{ //ID 0x81
 public:
     MultiKartSelect(); //8062b4f4
     ~MultiKartSelect() override; //8084a824 vtable 808d9b08
@@ -51,7 +51,7 @@ public:
     void OnUpDownClick(UpDownControl *control, u32 hudSlotId); //8084a100
     void OnTextChange(TextUpDownValueControl::TextControl *control, u32 hudSlotId); //8084a2a8
 
-    static Page *GetPageById(PageId id = MULTIPLAYER_KART_SELECT); //8084a9b4
+    static Page *GetPageById(PageId id = PAGE_MULTIPLAYER_KART_SELECT); //8084a9b4
 
     //onButtonClick function = 80849e6c (onClick)
     //onButtonSelect offset = 0x64 call is virtual (onSelect)

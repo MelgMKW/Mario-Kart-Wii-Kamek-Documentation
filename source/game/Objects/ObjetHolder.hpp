@@ -5,8 +5,7 @@
 #include <game/File/Tables/GeoHitTable.hpp>
 #include <game/Objects/Object.hpp>
 #include <game/Objects/ObjectCollision.hpp>
-#include <game/System/Misc.hpp>
-#include <game/Item/ItemObj.hpp>
+#include <game/Item/Obj/ItemObj.hpp>
 #include <game/KMP/Controller.hpp>
 
 
@@ -19,7 +18,7 @@ class ObjFlowHolder{
     ObjFlowEntry *entries; //0x8 array size objectCount
     IndexToIDTable *idxToIDTable; //0xC
 }; //0x10
-static_assert(sizeof(ObjFlowHolder) == 0x160, "ObjFlowHolder");
+static_assert(sizeof(ObjFlowHolder) == 0x10, "ObjFlowHolder");
 
 class GeoHitTableHolder{
     explicit GeoHitTableHolder(const char *fileName); //807f9278
@@ -63,6 +62,7 @@ struct ObjectArray{
 }; //0x8
 
 class ObjectHolder{
+public:
     static ObjectHolder *sInstance; //0x809c4330
     static ObjectHolder *GetStaticInstance(); //8082a784 also inits
     static void DestroyStaticInstance(); //8082a824
@@ -85,7 +85,7 @@ class ObjectHolder{
     GeoHitTableKartObjHolder *geoHitTableKartObj; //0x14
     ObjectArray arrays[5]; //0x18 use enum, doesn't have ObjectKCLs
     Object *objects_0x40; //0x40
-    Vec3ZeroInit *positions[0xC8]; //0x44, no idea
+    Vec3ZeroInit **positions; //0x44, no idea,size 0xC8
     ObjToKartHit *kartInteractionArray; //0x48
     u8 unknown_0x4C[4];
     Object *pseaOrVenice_Nami; //0x50

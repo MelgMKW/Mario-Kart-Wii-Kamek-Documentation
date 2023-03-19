@@ -46,6 +46,7 @@ static_assert(sizeof(CtrlMenuCourseSelectCup) == 0xdd4, "CtrlMenuCourseSelectCup
 
 class CtrlMenuCourseSelectCourse : public LayoutUIControl { //layoutUIControl are coursebutton in the ptmfholder
 public:
+    static CourseId idxToCourseId[32]; //808a8088
     ~CtrlMenuCourseSelectCourse() override; //80628190 vtable 808d30c0
     void InitSelf() override; //807e5118 0x18
     int GetRuntimeTypeInfo() const override; //0x28 807e55f8

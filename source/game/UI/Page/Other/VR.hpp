@@ -9,7 +9,7 @@ Contributors:
 -Melg
 */
 namespace Pages{
-class VR : public Page { //0x91
+class VR : public Page { //ID 0x91
 public:
     VR(); //8064a3f4 vtable 0x808bfd0c
     ~VR() override; //0x8064a4e0

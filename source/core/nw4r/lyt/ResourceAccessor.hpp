@@ -1,7 +1,7 @@
 #ifndef _NW4R_LYTRESOURCEACCESSOR_
 #define _NW4R_LYTRESOURCEACCESSOR_
 #include "types.hpp"
-#include <core/nw4r/ut/Font.h>
+#include <core/nw4r/ut/Font.hpp>
 
 namespace nw4r{
 namespace lyt{

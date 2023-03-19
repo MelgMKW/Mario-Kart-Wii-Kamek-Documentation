@@ -5,7 +5,7 @@
 
 //_sinit_ at 805bf3b4
 namespace Pages{
-class MKChannelExplanation : public Page{ //0xca
+class MKChannelExplanation : public Page{ //ID 0xca
     MKChannelExplanation(); //805bee4c
     ~MKChannelExplanation() override; //805bef64 vtable 808b7818
     PageId GetNextPage() const override; //0x10 805bf1ac
@@ -26,7 +26,7 @@ class MKChannelExplanation : public Page{ //0xca
 }; //total size 0xa30
 static_assert(sizeof(MKChannelExplanation) == 0xa30, "MKChannelExplanation");
 
-class AddMKChannel : public Page{ //0xcb
+class AddMKChannel : public Page{ //ID 0xcb
     AddMKChannel(); //805be66c
     
     ~AddMKChannel() override; //805be84c vtable 808b7894

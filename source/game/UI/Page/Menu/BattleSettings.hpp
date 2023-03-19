@@ -7,7 +7,7 @@
 
 //_sinit_ at 8083cb44
 namespace Pages{
-class BattleSettings : public Menu{ //0x77
+class BattleSettings : public MenuInteractable{ //ID 0x77
     BattleSettings(); //80629184
     ~BattleSettings() override; //8083c9b0 808d9188
     void OnInit() override; //8083bc5c 0x28
@@ -33,7 +33,7 @@ class BattleSettings : public Menu{ //0x77
     void OnUpDownSelect(UpDownControl *control, u32 hudSlotId); //8083c838
     void OnTextChange(TextUpDownValueControl::TextControl *control, u32 hudSlotId); //8083c8c0
 
-    static Page *GetPageById(PageId id = BATTLE_SETTINGS); //8083bb4c
+    static Page *GetPageById(PageId id = PAGE_BATTLE_SETTINGS); //8083bb4c
     static void TriggerRadioPtmf(PtmfHolder_3A<Page, void, RadioButtonControl*, u32, s32>, RadioButtonControl *control, u32 hudSlotId, u32 buttonId); //8083cab4
     static void TriggerUpDown2APtmf(PtmfHolder_2A<Page, void, UpDownControl*, u32>, UpDownControl *control, u32 hudSlotId); //8083cb14
     static void TriggerUpDown3APtmf(PtmfHolder_3A<Page, void, UpDownControl*, u32, u32>, UpDownControl *control, u32 hudSlotId, u32 optionId); //8083ca84

@@ -9,7 +9,7 @@
 
 //_sinit_ at 80840dd8
 namespace Pages{
-class CourseSelect : public Menu{ //0x6F    
+class CourseSelect : public MenuInteractable{ //ID 0x6F    
 public:
     CourseSelect(); //80627bd8
     ~CourseSelect() override; //80840ce0 vtable 808d9450
@@ -34,7 +34,7 @@ public:
     void UpdateBottomText(CtrlMenuCourseSelectCourse *course, PushButton *button, u32 hudSlotId); //80840728
     void OnTimeout(); //80840ba0 ends page and loads 0x92 (course votes)
     void LoadNextPage(CtrlMenuCourseSelectCourse *control, PushButton *courseButton, u32 hudSlotId); //80840830
-    static Page *GetPageById(PageId id = COURSE_SELECT); //808401e4
+    static Page *GetPageById(PageId id = PAGE_COURSE_SELECT); //808401e4
     //here the button refers to the back button as the course buttons are handled via extern controls
     //onButtonClick 0x658 vtable 808bd054 80840a44
     //onButtonSelect 0x66C vtable 808bd054 virtual 0x64

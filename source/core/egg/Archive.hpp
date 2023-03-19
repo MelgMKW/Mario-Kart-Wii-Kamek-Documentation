@@ -1,8 +1,8 @@
 #ifndef _EGGARCHIVE_
 #define _EGGARCHIVE_
 #include "types.hpp"
-#include <core/egg/Heap.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Heap.hpp>
+#include <core/egg/mem/Disposer.hpp>
 #include <core/rvl/arc/arc.h>
 
 namespace EGG{

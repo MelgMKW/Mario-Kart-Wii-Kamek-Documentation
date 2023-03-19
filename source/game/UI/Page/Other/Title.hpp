@@ -27,7 +27,7 @@ class TitleMovieControl : public LayoutUIControl{
 static_assert(sizeof(TitleMovieControl) == 0x174, "TitleMovieControl");
 
 namespace Pages{
-class Title : public Page{ //0x57
+class Title : public Page{ //ID 0x57
     Title(); //8063aa08
     ~Title() override; //8063aae4 vtable 808beea8
     PageId GetNextPage() const override; //0x10 8063c398
@@ -54,7 +54,7 @@ class Title : public Page{ //0x57
 }; //0x350
 static_assert(sizeof(Title) == 0x350, "Title");
 
-class BlurryTitle : public Page{ //0x58 behind main menu
+class BlurryTitle : public Page{ //ID 0x58 behind main menu
     BlurryTitle(); //8063b514
     ~BlurryTitle() override; //8063b560 vtable 808bee44
     void OnInit() override; //0x28 8062d5d4
@@ -66,7 +66,7 @@ class BlurryTitle : public Page{ //0x58 behind main menu
 }; //total size 0x1c8
 static_assert(sizeof(BlurryTitle) == 0x1c8, "BlurryTitle");
 
-class TitleMovie : public Page{ //0x59
+class TitleMovie : public Page{ //ID 0x59
     TitleMovie(); //8063bb08
     ~TitleMovie() override; //8063bb6c vtable 808beda4
     void OnInit() override; //0x28 8063bbe4
@@ -82,7 +82,7 @@ class TitleMovie : public Page{ //0x59
 }; //0x1d0
 static_assert(sizeof(TitleMovie) == 0x1d0, "TitleMovie");
 
-class BlinkingPressA : public Page{ //the blinking "press A" on demo
+class BlinkingPressA : public Page{ //ID the blinking "press A" on demo
     BlinkingPressA(); //8063c0ac
     ~BlinkingPressA() override; //8063c110 vtable 808bed40
     void OnInit() override; //0x28 8063c188

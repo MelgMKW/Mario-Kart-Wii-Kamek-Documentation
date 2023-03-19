@@ -2,7 +2,7 @@
 #define _PARAMATERFILE_
 #include "types.hpp"
 #include <core/nw4r/ut/List.hpp>
-#include <core/egg/Heap.hpp>
+#include <core/egg/mem/Heap.hpp>
 class RKParameterFile{
     RKParameterFile(const char *filePath, u32 r5); //80009c8c
     virtual ~RKParameterFile(); //80009ce0 vtable 80270c98

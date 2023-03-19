@@ -4,6 +4,7 @@
 #include <game/File/RawMii.hpp>
 #include <game/System/SaveDataManager.hpp>
 #include <game/Visual/Model/ModelDirector.hpp>
+#include <core/egg/mem/UnitHeap.hpp>
 
 /*
 Contributors:
@@ -45,7 +46,9 @@ public:
     MiiTexMap *GetMiiTexMap(u8 idx, u8 textureIdx); //805fa964
     Mii **mii; //0x4 pointer to the array of the miis loader
     MiiTexMap *textures[7]; //0x8
-    u8 unknown_0x24[0x98-0x24];
+    u8 unknown_0x24[0x2c-0x24];
+    EGG::UnitHeap *unitHeap; //0x2c
+    u8 unknown_0x30[0x98-0x30];
 }; //Total Size 0x98
 static_assert(sizeof(MiiGroup) == 0x98, "MiiGroup");
 

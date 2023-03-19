@@ -22,6 +22,6 @@ struct CollisionEntry{
     u16 kclFlag;
     u8 padding[2];
     float distance;  
-};////
+};
 
 #endif

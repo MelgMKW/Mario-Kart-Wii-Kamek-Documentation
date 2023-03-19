@@ -1,7 +1,7 @@
 #ifndef _ENTITYMANAGER_
 #define _ENTITYMANAGER_
 #include <kamek.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Disposer.hpp>
 
 class Object;
 class ItemObj;

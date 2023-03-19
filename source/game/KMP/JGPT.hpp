@@ -9,5 +9,5 @@ struct JGPT{
     u16 range;
 }; //total size 0x1c
 
-typedef struct Section<JGPT> JGPTSection;
+typedef struct KMPSection<JGPT> JGPTSection;
 #endif

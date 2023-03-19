@@ -4,11 +4,11 @@
 #include <core/nw4r/ut/LinkList.hpp>
 #include <core/egg/Archive.hpp>
 #include <core/egg/Audio.hpp>
-#include <core/egg/Disposer.hpp>
+#include <core/egg/mem/Disposer.hpp>
 #include <core/egg/DvdRipper.hpp>
 #include <core/egg/Effect/Effect.hpp>
 #include <core/egg/Effect/EffectResource.hpp>
-#include <core/egg/Heap.hpp>
+#include <core/egg/mem/Heap.hpp>
 #include <core/egg/Thread.hpp>
 
 namespace EGG {
