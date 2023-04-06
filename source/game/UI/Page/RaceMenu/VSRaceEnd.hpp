@@ -3,8 +3,8 @@
 #include <kamek.hpp>
 #include <game/UI/Page/RaceMenu/RaceMenu.hpp>
 
-namespace Pages{
-class VSRaceEnd : public RaceMenu{ //ID 0x22
+namespace Pages {
+class VSRaceEnd : public RaceMenu { //ID 0x22
 public:
     VSRaceEnd(); //80624e48
     ~VSRaceEnd() override; //80632b30 vtable 808bd820

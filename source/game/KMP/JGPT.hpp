@@ -2,7 +2,7 @@
 #define _JGPT_
 #include <game/KMP/SectionBase.hpp>
 
-struct JGPT{ 
+struct JGPT {
     Vec3 position;
     Vec3 rotation;
     u16 id;

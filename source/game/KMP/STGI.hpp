@@ -3,7 +3,7 @@
 #define _STGI_
 #include <game/KMP/SectionBase.hpp>
 
-struct STGI{ 
+struct STGI {
     u8 lapCount;
     u8 polePosition;
     u8 narrow;

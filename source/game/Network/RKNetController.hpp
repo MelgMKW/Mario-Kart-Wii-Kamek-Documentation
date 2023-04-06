@@ -13,17 +13,17 @@ References:
   http://wiki.tockdom.com/wiki/MKWii_Network_Protocol
 */
 
-struct StatusData{ //http://wiki.tockdom.com/wiki/MKWii_Network_Protocol/Server/gpcm.gs.nintendowifi.net#locstring
+struct StatusData { //http://wiki.tockdom.com/wiki/MKWii_Network_Protocol/Server/gpcm.gs.nintendowifi.net#locstring
     u32 hostDWCgroupid;
     u8 regionId; //last byte of it
     u8 status; //bitfield
     u8 playerCount;
-    u8 curRace; 
+    u8 curRace;
 };
-struct RKNetFriend{
-  StatusData statusData; //8 bytes, see 
-  u8 unknown_0x8[4];
-} ; //total size 0xC
+struct RKNetFriend {
+    StatusData statusData; //8 bytes, see 
+    u8 unknown_0x8[4];
+}; //total size 0xC
 
 class PacketHolder {
 public:
@@ -54,12 +54,12 @@ class SplitRACEPointers {
     PacketHolder *event;
 }; //Total size 0x20
 
-struct ConnectionUserData{
+struct ConnectionUserData {
     u8 playersAtConsole;
     u8 unknown_0x1[3];
 }; //Total size 0x4
 
-struct RKNetControllerSub{
+struct RKNetControllerSub {
     u64 unknown_0x0; //a time for something
     u32 connectionCount; //0x8 number of consoles connected
     u32 playerCount; //0xc
@@ -75,7 +75,7 @@ struct RKNetControllerSub{
     u8 unknown_0x54[4];
 }; //Total size 0x58
 
-enum RKNetConnectionState{
+enum RKNetConnectionState {
     STATE_SHUTDOWN,
     STATE_LOGIN_START,
     STATE_LOGIN_AUTHORISED,
@@ -85,7 +85,7 @@ enum RKNetConnectionState{
     STATE_ERROR
 };
 
-enum RKNetSearchType{
+enum RKNetSearchType {
     SEARCH_VS_WW,
     SEARCH_VS_REGIONAL,
     SEARCH_BT_WW,
@@ -125,11 +125,11 @@ public:
     void UpdateStatusDatas(); //8065a0b4
     void UpdateSubsAndVr(); //80658de0
 
-    u8 unknown_0x4[0x20-0x4];//unknown class vtable 808c0988
+    u8 unknown_0x4[0x20 - 0x4];//unknown class vtable 808c0988
     EGG::ExpHeap *expHeap;
     EGG::TaskThread *taskThread;
     RKNetConnectionState connectionState;
-    u8 unknown_0x2c[0x38-0x2c];
+    u8 unknown_0x2c[0x38 - 0x2c];
     RKNetControllerSub subs[2]; //0x38
     RKNetSearchType searchType;
     u8 unknown_0xec[4];
@@ -161,15 +161,15 @@ public:
     u8 aidsBelongingToPlayerIds[12]; //0x2920 index is player id, value is aid
     u32 disconnectedAids; //0x292c 1 if disconnected, index 1 << aid
     u32 disconnectedPlayerIds; //0x2930 index 1 << playerId
-    u8 unknown_0x2934[0x29c8-0x2934];
+    u8 unknown_0x2934[0x29c8 - 0x2934];
 };
-static_assert(sizeof(RKNetController) == 0x29c8, "RKNetController");
+size_assert(RKNetController, 0x29c8);
 
-namespace RKNet{
-    void userRecivedCallback(u32 aid, void *packet, u32 size); //806585f4
-    void *DWCAlloc(s32 r3, u32 size, s32 alignment); //80658500
-    void DWCFree(s32 r3, void *buffer); //8065858c
-    void *SOAlloc(s32 r3, u32 size); //80658418
-    void SOFree(s32 r3, void *buffer); //80658498
+namespace RKNet {
+void userRecivedCallback(u32 aid, void *packet, u32 size); //806585f4
+void *DWCAlloc(s32 r3, u32 size, s32 alignment); //80658500
+void DWCFree(s32 r3, void *buffer); //8065858c
+void *SOAlloc(s32 r3, u32 size); //80658418
+void SOFree(s32 r3, void *buffer); //80658498
 }//namespace RKNet
 #endif

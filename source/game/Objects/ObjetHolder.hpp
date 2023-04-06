@@ -9,7 +9,7 @@
 #include <game/KMP/Controller.hpp>
 
 
-class ObjFlowHolder{
+class ObjFlowHolder {
     explicit ObjFlowHolder(const char *fileName); //8082c10c
     virtual ~ObjFlowHolder(); //8082c1f4 vtable 808d8210
     u32 GetObjIDByName(const char *objName); //8082c178
@@ -18,9 +18,9 @@ class ObjFlowHolder{
     ObjFlowEntry *entries; //0x8 array size objectCount
     IndexToIDTable *idxToIDTable; //0xC
 }; //0x10
-static_assert(sizeof(ObjFlowHolder) == 0x10, "ObjFlowHolder");
+size_assert(ObjFlowHolder, 0x10);
 
-class GeoHitTableHolder{
+class GeoHitTableHolder {
     explicit GeoHitTableHolder(const char *fileName); //807f9278
     virtual ~GeoHitTableHolder(); //807f9348 vtable 808d4160
     GeoHitTableEntry *curEntry; //0x4 used by the ctor
@@ -30,38 +30,38 @@ class GeoHitTableHolder{
     IndexToIDTable *idxToIDTable; //0x10
 };
 
-class GeoHitTableItemHolder : public GeoHitTableHolder{
+class GeoHitTableItemHolder : public GeoHitTableHolder {
     ~GeoHitTableItemHolder() override; //8082b5fc vtable 808d8038
 };
 
-class GeoHitTableItemObjHolder : public GeoHitTableHolder{
+class GeoHitTableItemObjHolder : public GeoHitTableHolder {
     ~GeoHitTableItemObjHolder() override; //8082b5bc vtable 808d802c
 };
 
-class GeoHitTableKartHolder : public GeoHitTableHolder{
+class GeoHitTableKartHolder : public GeoHitTableHolder {
     ~GeoHitTableKartHolder() override; //8082b57c vtable 808d8020
 };
 
-class GeoHitTableKartObjHolder : public GeoHitTableHolder{
+class GeoHitTableKartObjHolder : public GeoHitTableHolder {
     ~GeoHitTableKartObjHolder() override; //8082b53c vtable 808d8014
 };
 
 
 
-enum ObjArrayList{
+enum ObjArrayList {
     OBJ_ARRAY_ALL,
     OBJ_ARRAY_HAS_LOD,
     OBJ_ARRAY_2,
     OBJ_ARRAY_3,
     OBJ_ARRAY_SOLID,
 };
-struct ObjectArray{
+struct ObjectArray {
     u16 count;
     u16 padding;
     Object **array;
 }; //0x8
 
-class ObjectHolder{
+class ObjectHolder {
 public:
     static ObjectHolder *sInstance; //0x809c4330
     static ObjectHolder *GetStaticInstance(); //8082a784 also inits
@@ -77,7 +77,7 @@ public:
     void HandleDroppedItem(ItemObj *itemEntity, Vec3 *position, float unknown); //8082adbc
     void AddObject(Object *object); //8082b0e8
     void CheckCollision(Kart *kart, ObjectCollisionPolyhedra *collision); //8082ab04
-    
+
     ObjFlowHolder *objFlow; //0x4
     GeoHitTableItemHolder *geoHitTableItem; //0x8
     GeoHitTableItemObjHolder *geoHitTableItemObj; //0xC
@@ -93,11 +93,11 @@ public:
     u8 padding6[3];
     Object *managedObjects; //0x58 only for MH, DC, rSGB, rDH, galaxy colosseum ie objects with a object that is managed
     u8 unknown_0x5c[4];
-    bool unknown_0x60; 
+    bool unknown_0x60;
     u8 padding7[3];
     Mtx34 transformationMatrixes[4]; //0x64
     float angles[4]; //0x124 0 45 90 135
     ObjectCollisionManager droppedItemManager; //0x134
 }; //total size 0x160
-static_assert(sizeof(ObjectHolder) == 0x160, "ObjectHolder");
+size_assert(ObjectHolder, 0x160);
 #endif

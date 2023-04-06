@@ -6,8 +6,8 @@
 
 
 //_sinit_ at 808502b8
-namespace Pages{
-class VSTeamsView : public MenuInteractable{ //ID 0x74
+namespace Pages {
+class VSTeamsView : public MenuInteractable { //ID 0x74
     VSTeamsView(); //806287e0
     ~VSTeamsView() override; //80850214 vtable 808d9f98
     void OnInit() override; //8084fdac 0x28
@@ -35,6 +35,6 @@ class VSTeamsView : public MenuInteractable{ //ID 0x74
     u32 blueTeamPlayerCount;
     CtrlMenuTeamConfirmTeam teams[2]; //0x6cc
 }; //total size 0x1b2c
-static_assert(sizeof(VSTeamsView) == 0x1b2c, "VSTeamView");
+size_assert(VSTeamsView, 0x1b2c);
 }//namespace Pages
 #endif

@@ -1,13 +1,13 @@
 #ifndef _EGGFADER_
 #define _EGGFADER_
-#include "types.hpp"
+#include <types.hpp>
 #include <core/nw4r/ut/Color.hpp>
 #include <core/nw4r/ut/Rect.hpp>
 
-namespace EGG{
+namespace EGG {
 
-namespace Fader{
-enum EStatus{
+namespace Fader {
+enum EStatus {
     CAN_FADE_IN = 0, //unsure
     CAN_FADE_OUT = 1, //is currently doing something
     FADE_IN = 2,
@@ -15,7 +15,7 @@ enum EStatus{
 };
 }
 
-class ColorFader{
+class ColorFader {
 public:
     ColorFader(float xOrig, float yOrig, float xSize, float ySize, nw4r::ut::Color color, Fader::EStatus status); //80215168
     virtual void setStatus(Fader::EStatus status); //80215248 vtable 802a2a28
@@ -36,7 +36,7 @@ public:
     nw4r::ut::Color color; //0x10 alpha set by calc 255 * (1 - cur/total) increases for fadeout, decreases for fadein
     nw4r::ut::Rect rect; //0x14 based on args
 };
-static_assert(sizeof(ColorFader) == 0x24, "ColorFader");
+size_assert(ColorFader, 0x24);
 
 }//namespace EGG
 

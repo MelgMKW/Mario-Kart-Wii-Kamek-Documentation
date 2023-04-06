@@ -1,23 +1,23 @@
 #ifndef _EGGSCENE_
 #define _EGGSCENE_
-#include "types.hpp"
+#include <types.hpp>
 #include <core/nw4r/ut/LinkList.hpp>
 #include <core/egg/mem/Disposer.hpp>
 #include <core/egg/mem/ExpHeap.hpp>
 #include <core/egg/Fader.hpp>
 
-namespace EGG{
+namespace EGG {
 
 class SceneManager;
 class Scene;
 
-class SceneCreator{ //vtable got done away by the compiler
+class SceneCreator { //vtable got done away by the compiler
     virtual Scene *create(u32 sceneId); //0x8
     virtual void destroy(u32 sceneId);  //0xc
 }; //0x4 
 
-static_assert(sizeof(SceneCreator) == 0x4, "SceneCreator");
-class Scene : public EGG::Disposer{
+size_assert(SceneCreator, 0x4);
+class Scene : public EGG::Disposer {
 public:
     Scene(); //8023ad10
     ~Scene() override;     //8023ad84, vtable 802a3de0
@@ -37,9 +37,9 @@ public:
     u32 id;
     SceneManager *manager; //0x2c
 }; //0x30
-static_assert(sizeof(Scene) == 0x30, "Scene");
+size_assert(Scene, 0x30);
 
-class SceneManager{
+class SceneManager {
 public:
     SceneManager(SceneCreator *creator); //8023addc
     virtual void calc();                //0x8  8023ae60 vtable 802a3e08
@@ -78,10 +78,10 @@ public:
     u32 nextSceneMEM; //0x28, 1 for mem2, unsure
     SceneCreator *nextSceneCreator; //0x2c
 
-    
+
 
 }; //0x30
-static_assert(sizeof(SceneManager) == 0x30, "SceneManager");
+size_assert(SceneManager, 0x30);
 
 }//namespace EGG
 

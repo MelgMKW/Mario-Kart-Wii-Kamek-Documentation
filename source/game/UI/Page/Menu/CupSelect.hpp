@@ -7,10 +7,11 @@
 
 
 //_sinit_ at 80842340
-namespace Pages{
-class CupSelect : public MenuInteractable{ //ID 0x6e
+namespace Pages {
+class CupSelect : public MenuInteractable { //ID 0x6e
 public:
     static CourseId idxToCourseId[32]; //808ad320
+    static const char cupTPLs[0x8][0x10]; //808AF8E0
     CupSelect(); //80627684
     ~CupSelect() override; //80842240 vtable 808d94e8
     void OnInit() override; //80840efc 0x28
@@ -28,7 +29,7 @@ public:
     UIControl *CreateExternalControl(u32 externControlId) override; //80841000 0x84
     UIControl *CreateControl(u32 controlId) override; //80841008 0x88
     void SetButtonHandlers(PushButton *button) override; //808421e4 8083716C 0x8C
-    
+
     void UpdateText(CtrlMenuCupSelectCup *cups); //80841614 updates tracklist and bottomtext if grandprix (with trophy and rank)
     void LoadNextPage(CtrlMenuCupSelectCup *ctrlMenuCupSelectCup, PushButton *cupButton, u32 hudSlotId); //80841744
     void OnTimeout(); //808420d8 ends page and loads 0x92 (course votes)
@@ -36,7 +37,7 @@ public:
     void OnButtonDeselect(PushButton *button, u32 hudSlotId); //80841b50
     void OnBackPress(u32 hudSlotId); //80841b54
     static Page *GetPageById(PageId id = PAGE_CUP_SELECT); //80840dec only ever used with id = cup select so it's here
-    
+
     //for back button
     //onButtonClick    vtable = 0x808bd06c function = 808418e8
     //onButtonSelect   vtable = 0x808bd06c offset = 0x64 call is virtual
@@ -50,6 +51,6 @@ public:
     u32 unknown_0x23D8;
     float float_0x23dc;
 }; //total size 0x23e0
-static_assert(sizeof(CupSelect) == 0x23e0, "CupSelectPage");
+size_assert(CupSelect, 0x23e0);
 }//namespace Pages
 #endif

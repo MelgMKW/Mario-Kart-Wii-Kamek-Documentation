@@ -3,6 +3,9 @@
 /cw
 cw/
 /.vscode
+*/.vscode
+*/.editorconfig
+.editorconfig
 
 # Compiled Object files
 *.slo
@@ -33,3 +36,5 @@ cw/
 *.exe
 *.out
 *.app
+engine/.editorconfig
+source/.editorconfig

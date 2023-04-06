@@ -5,8 +5,8 @@
 #include <game/UI/Page/RaceMenu/RaceMenu.hpp>
 
 
-namespace Pages{
-class TTPause : public RaceMenu{ //ID 0x19
+namespace Pages {
+class TTPause : public RaceMenu { //ID 0x19
 public:
     TTPause(); //80624be4 
     ~TTPause() override; //80633498 vtable 808bde6c
@@ -17,6 +17,6 @@ public:
     bool IsPausePage() const override; //0x74 80633470
     const char *GetButtonsBRCTRName() const override; //0x78 80633478
 }; //total size 0x344
-static_assert(sizeof(TTPause) == 0x344, "TTPause");
+size_assert(TTPause, 0x344);
 }//namespace Pages
 #endif

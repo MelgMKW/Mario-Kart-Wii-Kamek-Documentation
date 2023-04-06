@@ -4,9 +4,9 @@
 #include <game/UI/Page/Page.hpp>
 
 //_sinit_ at 80602ef4
-namespace Pages{
+namespace Pages {
 
-class ActionLess : public Page{
+class ActionLess : public Page {
     ActionLess(); //805bab40 inlined
     ~ActionLess() override; //805bab84 vtable 808b7480
     void OnInit() override; //0x28 805babec
@@ -17,7 +17,7 @@ class ActionLess : public Page{
     u8 unknown_0x54[4]; //0x54
 }; //0x58
 
-class AutoEnding : public ActionLess{ //ID 0x4F but also ID 0x50 and ID 0xc7
+class AutoEnding : public ActionLess { //ID 0x4F but also ID 0x50 and ID 0xc7
     AutoEnding(); //805bae98
     ~AutoEnding() override; //805baf68 vtable 808b73a8
     void OnInit() override; //0x28 805bb024
@@ -29,7 +29,7 @@ class AutoEnding : public ActionLess{ //ID 0x4F but also ID 0x50 and ID 0xc7
     MessageWindowControl *messageWindow; //type SimpleMessageWindowControl if 0x50
     u32 unknown_0x344; //set to -1 by OnInit
 }; //total size 0x348
-static_assert(sizeof(AutoEnding) == 0x348, "AutoEnding");
+size_assert(AutoEnding, 0x348);
 }//namespace pages
 
 #endif

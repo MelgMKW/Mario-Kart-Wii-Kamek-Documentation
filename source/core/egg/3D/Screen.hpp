@@ -1,11 +1,11 @@
 #ifndef _EGG_SCREEN_
 #define _EGG_SCREEN_
-#include "types.hpp"
+#include <types.hpp>
 #include <core/nw4r/g3d.hpp>
 #include <core/egg/3D/Frustum.hpp>
 
-namespace EGG{
-class Screen : public Frustum{
+namespace EGG {
+class Screen : public Frustum {
 public:
     Screen(); //8023d2b4
     ~Screen() override; //8022014c

@@ -1,12 +1,12 @@
 #ifndef _EGG_DISPLAY_
 #define _EGG_DISPLAY_
-#include "types.hpp"
+#include <types.hpp>
 #include <core/egg/Thread.hpp>
 #include <core/nw4r/ut/List.hpp>
 #include <core/nw4r/ut/Color.hpp>
 
-namespace EGG{
-class Display{
+namespace EGG {
+class Display {
 public:
     Display(u8 timeBtwFrames); //80219e68
     bool clear;
@@ -29,7 +29,7 @@ public:
     float unknown_0x24;
 }; //0x28
 
-class AsyncDisplay : public Display{
+class AsyncDisplay : public Display {
 public:
     AsyncDisplay(u8 timeBtwFrames); //8020fd18
     void beginFrame() override; //8020fe24 vtable 802a26e0
@@ -38,7 +38,7 @@ public:
     void postVRetrace(); //80210024
     static void VIRetraceCallback(u32 retraceCount); //8020fcd4
 
-    u8 unknown_0x28[0x58-0x28];
+    u8 unknown_0x28[0x58 - 0x28];
     OSMessageQueue messageQueue; //0x58
     u32 unknown_0x78[2];
     u32 postVITick; //0x80

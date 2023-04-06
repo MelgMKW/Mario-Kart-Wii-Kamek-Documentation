@@ -10,7 +10,7 @@ Contributors:
 -stebler, Melg
 */
 
-enum GhostManagerPageState{
+enum GhostManagerPageState {
     IDLE,
     SAVED_GHOST_RACE_FROM_MENU = 0x3,
     SAVED_GHOST_REPLAY = 0x6,
@@ -19,8 +19,8 @@ enum GhostManagerPageState{
 };
 
 class GhostManager;
-struct GhostListEntry{
-    
+struct GhostListEntry {
+
     const GhostData *data; //0x0
     u32 ghostGroupId; //0x4
     u32 index; //0x8 ghost group ghostdata array index
@@ -28,7 +28,7 @@ struct GhostListEntry{
     u8 unknown_0xD[3];
 }; //total size 0x10
 
-class GhostList{
+class GhostList {
 public:
     GhostList(); //805e208c
     ~GhostList(); //805e209c
@@ -36,7 +36,7 @@ public:
     void FillWithAllDLdGhosts(); //805e2198
     void Init(CourseId id); //0x805e2200
     void Reset(); //805e22c8 inlined sets count to 0
-    
+
     void FillFromGroup(u32 ghostGroupId, GhostGroup *group, CourseId course, bool *isNew); //805e22d4 isNew only passed for downloaded ghosts
     void Sort(); //805e241c inlined
     static int CompareEntries(GhostListEntry *entry, GhostListEntry *entry2); //805e2430 returns distance between the 2?
@@ -51,7 +51,7 @@ public:
 }; //total size 0x268
 
 //_sinit_ at 805e272c
-namespace Pages{
+namespace Pages {
 class GhostManager : public Page { //ID 0xA7
 public:
     GhostManager(); //805e0c38 vtable 0x808b9258
@@ -88,7 +88,7 @@ public:
     RKG *rkgPointer; //0x20 aligned
     RKG rkgBuffer;
 };//total size 0x2b0c
-static_assert(sizeof(GhostManager) == 0x2B0C, "GhostManager");
+size_assert(GhostManager, 0x2B0C);
 }
 extern "C" {
     CourseId GetCourseIdBySlot(u32 slot); //just the nbr of the track

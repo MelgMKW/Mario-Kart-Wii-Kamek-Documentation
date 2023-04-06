@@ -5,7 +5,7 @@
 #include <game/UI/Page/Leaderboard/VSLeaderboardUpdate.hpp>
 
 //_sinit_ at 8085e644
-namespace Pages{
+namespace Pages {
 class VSLeaderboardTotal : public VSLeaderboardUpdate { //ID 0x30
 public:
     VSLeaderboardTotal(); //806252a8
@@ -15,6 +15,6 @@ public:
     int GetRuntimeTypeInfo() const override; //0x60 8085e5b0
     void LoadRows() override; //0x68 8085cae8
 }; //total size 0x1A8
-static_assert(sizeof(VSLeaderboardTotal) == 0x1A8, "VSLeaderboardTotal");
+size_assert(VSLeaderboardTotal, 0x1A8);
 }//namespace Pages
 #endif

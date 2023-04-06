@@ -4,8 +4,8 @@
 #include <game/UI/Page/Menu/Menu.hpp>
 
 //_sinit_ at 808401d0
-namespace Pages{
-class GPClassSelect : public MenuInteractable{ //ID 0x6a
+namespace Pages {
+class GPClassSelect : public MenuInteractable { //ID 0x6a
     GPClassSelect(); //80626950
     ~GPClassSelect() override; //80840138 vtable 808d9398
     void OnInit() override; //8083f4a8 0x28
@@ -38,6 +38,6 @@ class GPClassSelect : public MenuInteractable{ //ID 0x6a
     u8 padding[3];
     LayoutUIControl switchImage; //0x6c8
 }; //total size 0x83c
-static_assert(sizeof(GPClassSelect) == 0x83c, "GPClassSelectPage");
+size_assert(GPClassSelect, 0x83c);
 }//namespace Pages
 #endif

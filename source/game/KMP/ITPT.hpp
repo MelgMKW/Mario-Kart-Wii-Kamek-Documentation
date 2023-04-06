@@ -2,7 +2,7 @@
 #define _ITPT_
 #include <game/KMP/SectionBase.hpp>
 
-struct ITPT{ 
+struct ITPT {
     Vec3 position;
     float width;
     u16 setting1;

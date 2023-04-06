@@ -2,7 +2,7 @@
 #define _ENPT_
 #include <game/KMP/SectionBase.hpp>
 
-struct ENPT{
+struct ENPT {
     Vec3 position;
     float width;
     u16 setting1;

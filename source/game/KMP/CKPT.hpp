@@ -2,7 +2,7 @@
 #define _CKPT_
 #include <game/KMP/SectionBase.hpp>
 
-struct CKPT{
+struct CKPT {
     Vec2 leftPoint;
     Vec2 rightPoint;
     u8 respawn;

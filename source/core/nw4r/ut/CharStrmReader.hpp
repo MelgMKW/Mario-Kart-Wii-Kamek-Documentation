@@ -1,12 +1,12 @@
 #ifndef _NW4R_UT_CHARSTRMREADER_
 #define _NW4R_UT_CHARSTRMREADER_
-#include "types.hpp"
-namespace nw4r{
-namespace ut{
+#include <types.hpp>
+namespace nw4r {
+namespace ut {
 
-class CharStrmReader{
+class CharStrmReader {
 public:
-    typedef u16 (CharStrmReader::*ReadNextCharFunc)();
+    typedef u16(CharStrmReader:: *ReadNextCharFunc)();
     //ReadNextChar functions
     u16 ReadNextCharUTF8(); //800af420
     u16 ReadNextCharUTF16(); //800af4a0

@@ -1,13 +1,13 @@
 #ifndef _NW4R_UT_ROMFONT_
 #define _NW4R_UT_ROMFONT_
-#include "types.hpp"
+#include <types.hpp>
 #include <core/nw4r/ut/Font.hpp>
 #include <core/rvl/os/font.hpp>
 
-namespace nw4r{
-namespace ut{
+namespace nw4r {
+namespace ut {
 
-class RomFont : public Font{
+class RomFont : public Font {
 public:
     RomFont(); //800b1a20
     ~RomFont() override; //800b1a80 vtable 80274dac
@@ -23,7 +23,7 @@ public:
     GXTexFmt GetTextureFormat() const override; //0x30 800b1bc0
     int GetLineFeed() const override; //0x34 800b1bd0
     const CharWidths GetDefaultCharWidths() const override; //0x38 800b1be0
-    void SetDefaultCharWidths(const CharWidths& widths) override; //0x3c 800b11c00
+    void SetDefaultCharWidths(const CharWidths &widths) override; //0x3c 800b11c00
     bool SetAlternateChar(u16 code) override; //0x40 800b11c20
     void SetLineFeed(int linefeed) override; //0x44 800b11cb0
     int GetCharWidth(u16 code) const override; //0x48 800b11cc0

@@ -4,26 +4,26 @@
 #include <game/System/Archive.hpp>
 
 enum SceneId {
-    SCENE_ID_MENU=0x1,
-    SCENE_ID_RACE=0x2,
-    SCENE_ID_TEST=0x3,
-    SCENE_ID_GLOBE=0x4,
-    SCENE_ID_UNK5=0x5,
-    SCENE_ID_UNK6=0x6,
-    SCENE_ID_UNK7=0x7,
-    SCENE_ID_UNK8=0x8,
-    SCENE_ID_UNK9=0x9,
-    SCENE_ID_UNK10=0xa,
-    SCENE_ID_UNK11=0xb
+    SCENE_ID_MENU = 0x1,
+    SCENE_ID_RACE = 0x2,
+    SCENE_ID_TEST = 0x3,
+    SCENE_ID_GLOBE = 0x4,
+    SCENE_ID_UNK5 = 0x5,
+    SCENE_ID_UNK6 = 0x6,
+    SCENE_ID_UNK7 = 0x7,
+    SCENE_ID_UNK8 = 0x8,
+    SCENE_ID_UNK9 = 0x9,
+    SCENE_ID_UNK10 = 0xa,
+    SCENE_ID_UNK11 = 0xb
 };
 
-class GameSceneCreator : public RKSceneCreator{ //also creates the rootscene
+class GameSceneCreator : public RKSceneCreator { //also creates the rootscene
 public:
     Scene *create(u32 sceneId) override; //8054aa64 vtable 808b3cb0
     void destroy(u32 sceneId) override;  //8054ab28
 };
 
-class BaseScene : public RKScene{ //used by RootScene only?
+class BaseScene : public RKScene { //used by RootScene only?
 public:
     ~BaseScene() override; //8051a368 vtable 808b2d10
     void calc() override;   //0xc  8051c02c
@@ -35,13 +35,13 @@ public:
     void outgoing_child_create() override; //0x24 8051c00c
 }; //0xc70
 
-class ArchiveLink{
+class ArchiveLink {
     nw4r::ut::Link link;
     ArchivesHolder *holder;
     ArchiveSource source;
 };
 
-class GameScene : public BaseScene{
+class GameScene : public BaseScene {
 public:
     static const GameScene *GetCurrent(); //8051bed0, gets current scene from SceneManager and if id != 0 and != 5, returns it
     GameScene(); //8051a1e0
@@ -85,17 +85,17 @@ public:
     ExpHeap *structsMem2; //0xc8c
     u32 unknown_0xc90;
     ExpHeapGroup structsHeaps; //0xc94
-    u8 unknown_0x18a0[0x18d4-0x18a0];
+    u8 unknown_0x18a0[0x18d4 - 0x18a0];
     ExpHeapGroup archiveHeaps; //0x18d4
-    u8 unknown_0x24e0[0x2514-0x24e0];
+    u8 unknown_0x24e0[0x2514 - 0x24e0];
     u32 someRandomThing; //0x2514 8051ac44
     u32 someRandomThing2; //0x2518 8051ac44
     void *randomTimes32; //0x251c
     void *random2Times32; //0x2520
     bool unknown_0x2530[2];
-    u8 unknown_0x2532[0x2544-0x2532];
+    u8 unknown_0x2532[0x2544 - 0x2532];
     u32 nextId; //0x2544
-    u8 unknown_0x2548[0x254c-0x2548];
+    u8 unknown_0x2548[0x254c - 0x2548];
 
 };
 #endif

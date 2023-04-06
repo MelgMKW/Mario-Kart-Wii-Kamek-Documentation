@@ -4,13 +4,14 @@
  * (c) Treeki 2010-2018
  */
 
+#pragma gcc_extensions on
 #ifndef __KAMEK_H
 #define __KAMEK_H
-#include "types.hpp"
+#include <types.hpp>
 
 
-#pragma cpp1x on
-#pragma gcc_extensions
+
+
 
 #include <include/c_stdlib.h>
 #include <include/c_math.h>
@@ -22,34 +23,35 @@
 #include <game/Math/Matrix.hpp>
 #include <game/Math/Vector.hpp>
 #include <core/rvl/os/OS.hpp>
-//just for usability in other structs, so that you don't have to type EGG::type every time
+#include <core/nw4r/ut/List.hpp>
+ //just for usability in other structs, so that you don't have to type EGG::type every time
 
 template <class Subject, typename Ret>
-struct Ptmf_0A{
+struct Ptmf_0A {
     int this_delta;
     int vtableOffset;
-    Ret (Subject::*functionPointer)();
+    Ret(Subject:: *functionPointer)();
 };//total size 0xc
 
 template <class Subject, typename Ret, typename A1>
-struct Ptmf_1A{
+struct Ptmf_1A {
     int this_delta;
     int vtableOffset;
-    Ret (Subject::*functionPointer)(A1);
+    Ret(Subject:: *functionPointer)(A1);
 };//total size 0xc
 
 template <class Subject, typename Ret, typename A1, typename A2>
-struct Ptmf_2A{
+struct Ptmf_2A {
     int this_delta;
     int vtableOffset;
-    Ret (Subject::*functionPointer)(A1, A2);
+    Ret(Subject:: *functionPointer)(A1, A2);
 };//total size 0xc
 
 template <class Subject, typename Ret, typename A1, typename A2, typename A3>
-struct Ptmf_3A{
+struct Ptmf_3A {
     int this_delta;
     int vtableOffset;
-    Ret (Subject::*functionPointer)(A1, A2, A3);
+    Ret(Subject:: *functionPointer)(A1, A2, A3);
 };//total size 0xc
 
 template <typename Ret>
@@ -59,8 +61,8 @@ struct PtmfHolderBase_0A {
 
 template <class Subject, typename Ret>
 struct PtmfHolder_0A : PtmfHolderBase_0A<Ret> {
-    Subject * subject;
-    Ret (Subject::*ptmf)();
+    Subject *subject;
+    Ret(Subject:: *ptmf)();
     virtual Ret operator()() {
         return (subject->*ptmf)();
     }
@@ -73,8 +75,8 @@ struct PtmfHolderBase_1A {
 
 template <class Subject, typename Ret, typename A1>
 struct PtmfHolder_1A : PtmfHolderBase_1A<Ret, A1> {
-    Subject * subject;
-    Ret (Subject::*ptmf)(A1);
+    Subject *subject;
+    Ret(Subject:: *ptmf)(A1);
     virtual Ret operator()(A1 a1) {
         return (subject->*ptmf)(a1);
     }
@@ -86,8 +88,8 @@ struct PtmfHolderBase_2A {
 };
 template <class Subject, typename Ret, typename A1, typename A2>
 struct PtmfHolder_2A : PtmfHolderBase_2A<Ret, A1, A2> {
-    Subject * subject;
-    Ret (Subject::*ptmf)(A1, A2);
+    Subject *subject;
+    Ret(Subject:: *ptmf)(A1, A2);
     virtual Ret operator()(A1 a1, A2 a2) {
         return (subject->*ptmf)(a1, a2);
     }
@@ -99,8 +101,8 @@ struct PtmfHolderBase_3A {
 };
 template <class Subject, typename Ret, typename A1, typename A2, typename A3>
 struct PtmfHolder_3A : PtmfHolderBase_3A<Ret, A1, A2, A3> {
-    Subject * subject;
-    Ret (Subject::*ptmf)(A1, A2, A3);
+    Subject *subject;
+    Ret(Subject:: *ptmf)(A1, A2, A3);
     virtual Ret operator()(A1 a1, A2 a2, A3 a3) {
         return (subject->*ptmf)(a1, a2, a3);
     }
@@ -130,19 +132,19 @@ class SectionLoadHook {
 private:
     typedef void (Func)();
     Func *mFunc;
-    SectionLoadHook * mNext;
+    SectionLoadHook *mNext;
 
-    static SectionLoadHook * sHooks;
+    static SectionLoadHook *sHooks;
 
 public:
-    SectionLoadHook(Func * f) {
+    SectionLoadHook(Func *f) {
         mNext = sHooks;
         sHooks = this;
         mFunc = f;
     }
 
     static void exec() {
-        for (SectionLoadHook * p = sHooks; p; p = p->mNext)
+        for (SectionLoadHook *p = sHooks; p; p = p->mNext)
             p->mFunc();
     }
 };
@@ -151,19 +153,19 @@ class RaceLoadHook {
 private:
     typedef void (Func)();
     Func *mFunc;
-    RaceLoadHook * mNext;
+    RaceLoadHook *mNext;
 
-    static RaceLoadHook * sHooks;
+    static RaceLoadHook *sHooks;
 
 public:
-    RaceLoadHook(Func * f) {
+    RaceLoadHook(Func *f) {
         mNext = sHooks;
         sHooks = this;
         mFunc = f;
     }
 
     static void exec() {
-        for (RaceLoadHook * p = sHooks; p; p = p->mNext)
+        for (RaceLoadHook *p = sHooks; p; p = p->mNext)
             p->mFunc();
     }
 };
@@ -172,59 +174,46 @@ class RaceFrameHook {
 private:
     typedef void (Func)();
     Func *mFunc;
-    RaceFrameHook * mNext;
+    RaceFrameHook *mNext;
 
-    static RaceFrameHook * sHooks;
+    static RaceFrameHook *sHooks;
 
 public:
-    RaceFrameHook(Func * f) {
+    RaceFrameHook(Func *f) {
         mNext = sHooks;
         sHooks = this;
         mFunc = f;
     }
 
     static void exec() {
-        for (RaceFrameHook * p = sHooks; p; p = p->mNext) p->mFunc();
+        for (RaceFrameHook *p = sHooks; p; p = p->mNext) p->mFunc();
     }
-};
-
-enum HookPriority{
-    LOW,
-    MEDIUM,
-    HIGH,
-    FIRST,
 };
 
 class BootHook {
-private:
+public:
     typedef void (Func)();
     Func *mFunc;
-    BootHook * mNext;
-    HookPriority mPriority;
-    static BootHook * sHooks;
+    nw4r::ut::Link link;
+    static nw4r::ut::List list;
 
 public:
-    BootHook(Func * f, HookPriority prio) {
-        mNext = sHooks;
-        sHooks = this;
-        mFunc = f;
-        mPriority = prio;
+    BootHook(Func *f, u16 position) {
+        this->mFunc = f;
+        Func *obj = (Func *)nw4r::ut::List_GetNth(&list, position);
+        if (obj == NULL || position > list.count) nw4r::ut::List_Append(&list, this);
+        else {
+            nw4r::ut::List_Insert(&list, obj, this);
+        }
     }
 
     static void exec() {
-        int level = OSDisableInterrupts();
-        for (BootHook * p = sHooks; p; p = p->mNext)
-            if(p->mPriority == FIRST) p->mFunc();
-
-        for (BootHook * p = sHooks; p; p = p->mNext)
-            if(p->mPriority == HIGH) p->mFunc();
-
-        for (BootHook * p = sHooks; p; p = p->mNext)
-            if(p->mPriority == MEDIUM) p->mFunc();
-
-        for (BootHook * p = sHooks; p; p = p->mNext)
-            if(p->mPriority == LOW) p->mFunc();
-        OSRestoreInterrupts(level);
+        BootHook *next = NULL;
+        BootHook *cur = (BootHook *)nw4r::ut::List_GetNth(&list, 0);
+        for (cur; cur != NULL; cur = next) {
+            cur->mFunc();
+            next = (BootHook *)nw4r::ut::List_GetNext(&list, cur);
+        }
     }
 };
 #endif

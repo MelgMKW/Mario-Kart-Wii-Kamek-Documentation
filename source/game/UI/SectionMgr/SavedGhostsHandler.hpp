@@ -3,7 +3,7 @@
 #include <kamek.hpp>
 #include <game/System/Ghost.hpp>
 
-enum SavedGhostsRequest{ //array position in the class
+enum SavedGhostsRequest { //array position in the class
     REQUEST_ERASE_ALL_GHOSTS = 0x0,
     REQUEST_SAVE_GHOST = 0x1,
     REQUEST_SAVE_LICENSE = 0x2,
@@ -12,7 +12,7 @@ enum SavedGhostsRequest{ //array position in the class
     REQUEST_GET_ALL_GHOSTS = 0x5
 };
 
-struct SavedGhostsRequestParams{
+struct SavedGhostsRequestParams {
     u32 licenseId; //0x0
     GhostGroupType ghostTpe; //0x4
     u8 ghostIndex; //0x8 used to fetch it or erase it from the save
@@ -48,7 +48,7 @@ public:
     u8 padding[2];
     SavedGhostsRequest curRequest; //0x8
     u32 error; //0xC from 0x5004 savedatamanager
-    u32 unknown_0x10; 
+    u32 unknown_0x10;
     u8 unknown_0x14[2];
     bool licenseHasNewContent; //0x16
     u8 unknown_0x17;
@@ -64,6 +64,6 @@ public:
     u32 getFromGroupLicenseId; //0x120 if request[5] and is -1, will load all ghosts from group, else will load all ghosts from group of that license
     GhostGroup *ghostGroup; //0x124
 }; //total size 0x128
-static_assert(sizeof(SavedGhostsHandler) == 0x128, "SavedGhostsHandler");
+size_assert(SavedGhostsHandler, 0x128);
 
 #endif

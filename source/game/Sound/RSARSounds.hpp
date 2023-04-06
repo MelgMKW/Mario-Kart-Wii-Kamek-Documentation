@@ -16,7 +16,7 @@ this class handles in race BRSAR sounds that are not:
 so stuff like the position tracker, the lap transition sound, the roulette spinning etc...
 */
 
-class RSARSoundsPlayer{
+class RSARSoundsPlayer {
 public:
     static RSARSoundsPlayer *GetStaticInstance(u32 type); //80713e90 1 = menu
     static RSARSoundsPlayer *DestroyStaticInstance(); //807140b4
@@ -41,11 +41,11 @@ public:
     bool isRouletteSoundPlaying; //alternates 0/1 within the same frame, but only when the roulette sound is playing
     u8 padding[2];
 };//0x18
-static_assert(sizeof(RSARSoundsPlayer) == 0x18, "RSARSounds");
+size_assert(RSARSoundsPlayer, 0x18);
 
-class MenuRSARSoundsPlayer : public RSARSoundsPlayer{
+class MenuRSARSoundsPlayer : public RSARSoundsPlayer {
 public:
-   //ctor? 80715a98 inlined
+    //ctor? 80715a98 inlined
     void Close() override; //0x8 80715b7c vtable 808c90e8
     void OnDeactivate() override; //0xc 80715bd4 sets state to 2, and child classes check variables like if the player is a ghost
     void Stop() override; //0x10 807c5c3c
@@ -54,7 +54,7 @@ public:
     void func_0x28() override; //80715c98
 };
 
-class RaceRSARSoundsPlayer : public RSARSoundsPlayer{
+class RaceRSARSoundsPlayer : public RSARSoundsPlayer {
 public:
     void Close() override; //0x8 80716404 vtable 808c9088
     void OnDeactivate() override; //0xc 80715e24
@@ -64,7 +64,7 @@ public:
     bool PlaySound(u32 soundId, u32 r5) override; //0x20 80716608
     bool HoldSound(u32 soundId) override; //8071677c
     void func_0x28() override; //807162b4
- 
+
     void PlayEndRaceMenuButtonClickSound(); //80715ff0 sound ID d5
     u8 unknown_0x18[4]; //probably for other types of sounds
 }; //total size 0x1C

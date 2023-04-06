@@ -6,8 +6,8 @@
 #include <game/UI/Ctrl/PushButton.hpp>
 #include <game/UI/Ctrl/FriendStatusButtonRaceAfter.hpp>
 
-namespace Pages{
-class RaceMenu : public Page{ //also used for end of races
+namespace Pages {
+class RaceMenu : public Page { //also used for end of races
 public:
     RaceMenu(); //80858ca4
     ~RaceMenu() override; //80624b38 vtable 808da928
@@ -37,14 +37,14 @@ public:
     LayoutUIControl *message; //0x4C sometimes a windowControl, can be stuff like Win-Losses in ghost races but also the controller with controls
     FriendStatusButtonRaceAfter *friendButton; //0x50
     u32 buttonCount; //0x54
-    u8 unknown_0x58[0xF0-0x58];
+    u8 unknown_0x58[0xF0 - 0x58];
     PageId nextPage; //0xF0
-    PtmfHolder_2A<RaceMenu, void, PushButton*, u32> onButtonClickHandler; //0xF4 8085a0f4
+    PtmfHolder_2A<RaceMenu, void, PushButton *, u32> onButtonClickHandler; //0xF4 8085a0f4
     PtmfHolder_1A<RaceMenu, void, u32> onStartHandler; //0x108 8085a098
     ControlsManipulatorManager manipulatorManager; //0x11c
     u32 controlBMGId; //0x340, used for message control 
 };//0x344
-static_assert(sizeof(RaceMenu) == 0x344, "Pause");
+size_assert(RaceMenu, 0x344);
 }//namespace Pages
 //Also builds a layoutUIControl for controller
 #endif

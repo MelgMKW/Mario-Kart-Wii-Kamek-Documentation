@@ -7,7 +7,7 @@
 #include <game/UI/Ctrl/ModelControl.hpp>
 
 //_sinit_ at 8083b0cc
-namespace Pages{
+namespace Pages {
 class BattleKartSelect : public MenuInteractable { //ID 0x76
 public:
     BattleKartSelect(); //80628e3c 
@@ -44,6 +44,6 @@ public:
     CharaName name; //0x854
     CtrlMenuMachineGraph ctrlMenuMachineGraph;
 }; // Total Size 0xb50
-static_assert(sizeof(BattleKartSelect) == 0xB50,"BattleKartSelect");
+size_assert(BattleKartSelect, 0xB50);
 }//namespace Pages
 #endif

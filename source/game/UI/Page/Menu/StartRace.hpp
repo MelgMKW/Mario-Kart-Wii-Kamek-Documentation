@@ -5,8 +5,8 @@
 #include <game/UI/Ctrl/Menu/CtrlMenuText.hpp>
 
 //_sinit_ at 80842a64
-namespace Pages{
-class StartRace : public MenuInteractable{ //ID 0x4B //tied to one OK button "Start?"
+namespace Pages {
+class StartRace : public MenuInteractable { //ID 0x4B //tied to one OK button "Start?"
     StartRace(); //80625a7c
     ~StartRace() override; //808429d8 vtable 808d9580
     void OnInit() override; //80842464 0x28
@@ -35,7 +35,7 @@ class StartRace : public MenuInteractable{ //ID 0x4B //tied to one OK button "St
     CtrlMenuObiTop ctrlMenuObiTop; //0x6c8
 
 }; //total size 0x6cc
-static_assert(sizeof(StartRace) == 0x6cc, "StartGameOK");
+size_assert(StartRace, 0x6cc);
 }//namespace Pages
 
 

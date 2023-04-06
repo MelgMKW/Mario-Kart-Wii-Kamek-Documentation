@@ -8,8 +8,8 @@
 #include <game/UI/Ctrl/Menu/CtrlMenuBattleStage.hpp>
 
 //_sinit_ at 8083d42c
-namespace Pages{
-class BattleStageSelect : public MenuInteractable{ //ID 0x79 
+namespace Pages {
+class BattleStageSelect : public MenuInteractable { //ID 0x79 
 public:
     BattleStageSelect(); //80629954
     ~BattleStageSelect() override; //8083d334 vtable 808d9228
@@ -42,13 +42,13 @@ public:
     //onButtonDeselect 0x680 vtable 808bd054 8083d158
     //onBackPress  0x694 vtable 808bd048 8083d15c
     //onStartPress 0x6A8 vtable 808bd048 virtual off 0x7C
-    
+
     u32 unknown_0x6C4;
     CtrlMenuBattleStageSelectCup ctrlMenuBattleStageSelectCup; //0x6c8
     CtrlMenuBattleStageSelectStage ctrlMenuBattleStageSelectStage; //0xb54
     bool unknown_0x1a80; //init at 0, set to 1 when a button is pressed
-    u8 unknown_0x1a81[0x1a84-0x1a81];//0x1a80
+    u8 unknown_0x1a81[0x1a84 - 0x1a81];//0x1a80
 }; //total size 0x1a84
-static_assert(sizeof(BattleStageSelect) == 0x1a84, "BattleStageSelect");
+size_assert(BattleStageSelect, 0x1a84);
 }//namespace Pages
 #endif

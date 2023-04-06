@@ -23,7 +23,7 @@ public:
     static SectionMgr *sInstance;
     static SectionMgr *GetStaticInstance(); //80634c90
     static void DestroyStaticInstance(); //80634cc8
-    
+
     static Pages::System *CreateSystemPages(u8 idx, SectionId id); //80634a64
     static int GetSectionPriority(SectionId id); //80634b80
     SectionMgr(); //80634d40
@@ -39,8 +39,8 @@ public:
     void Pause(); //80635a2c for example on Home Menu
     void Resume(); //80635a34 for example when Home Menu ends    
     void SetNextSection(SectionId id, u32 animDirection);  //80635a3c only if new priority > old priority
-    void RequestSceneChange(u32 delay, nw4r::ut::Color fadeOutColor); //80635ac8
-    void RequestSceneReinit(u32 delay, nw4r::ut::Color fadeOutColor); //80635b2c
+    void RequestSceneChange(u32 delay, u32 fadeOutColor); //80635ac8
+    void RequestSceneReinit(u32 delay, u32 fadeOutColor); //80635b2c
     void RequestGoToWiiMenu(); //80635c0c SetNextSection with "ReturnToMenu" section
     void RequestPowerOff(); //80635c74  SetNextSection with "PowerOff" section
     const char *GetNextSectionArchiveName(); //80635cdc
@@ -49,7 +49,7 @@ public:
     void UpdateStatusBitfield(); //80635cf4 inlined in update
     void UpdateDVDStatus(bool forceResume); //80635e08 inlined, forceResume regardless of Pages' isDvdEnabled
 
-    Section* curSection; /* http://wiki.tockdom.com/wiki/List_of_Identifiers#Menu_Identifiers */
+    Section *curSection; /* http://wiki.tockdom.com/wiki/List_of_Identifiers#Menu_Identifiers */
     SectionId bootSectionId; //usually set by SavedGhostHandler::Init, for example Creating new save/Corrupted save etc...
     SectionId unknownSectionId;
     SectionId nextSectionId; //0xc
@@ -58,7 +58,7 @@ public:
     u32 fadeAnimIdx; //0x18
     u32 fadeDelay; //0x1c
     bool firstLoad; //0x20
-	u8 unknown_0x21[3];
+    u8 unknown_0x21[3];
 
     u32 statusBitfield; //0x24 2 = homebutton allowed
     nw4r::ut::Color fadeOutColor; //0x28
@@ -70,9 +70,9 @@ public:
     SectionMgr98 *sectionMgr98;
 
 }; //Total Size 0x9C
-static_assert(sizeof(SectionMgr) == 0x9c, "SectionMgr");
+size_assert(SectionMgr, 0x9c);
 
-extern "C"{
+extern "C" {
     void SetupSectionLoad();
 }
 #endif

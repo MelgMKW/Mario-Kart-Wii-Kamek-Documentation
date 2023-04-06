@@ -1,8 +1,8 @@
 #ifndef _OS_FONT_
 #define _OS_FONT_
-#include "types.hpp"
+#include <types.hpp>
 
-struct OSFontHeader{
+struct OSFontHeader {
     u16 fontType;
     u16 firstChar;
     u16 lastChar;

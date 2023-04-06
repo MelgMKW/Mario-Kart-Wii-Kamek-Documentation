@@ -9,8 +9,8 @@ Contributors:
 -stebler, Melg
 */
 
-namespace Pages{
-class GhostReplayPause : public RaceMenu{ //ID 0x1f
+namespace Pages {
+class GhostReplayPause : public RaceMenu { //ID 0x1f
 public:
     GhostReplayPause(); //80624d7c 808bdb08
     ~GhostReplayPause() override; //80632f74
@@ -21,6 +21,6 @@ public:
     bool IsPausePage() const override; //0x74 80632f4c
     const char *GetButtonsBRCTRName() const override; //0x78 80632f54
 }; //total size 0x344
-static_assert(sizeof(GhostReplayPause) == 0x344, "GhostReplayPause");
+size_assert(GhostReplayPause, 0x344);
 }//namespace Pages
 #endif

@@ -4,8 +4,8 @@
 #include <game/UI/Page/Menu/Menu.hpp>
 
 //_sinit_ at 80852c6c
-namespace Pages{
-class VSModeSelect : public MenuInteractable{ //ID 0x72
+namespace Pages {
+class VSModeSelect : public MenuInteractable { //ID 0x72
     VSModeSelect(); //80628210
     ~VSModeSelect() override; //80852be0 vtable 808da238
     void OnInit() override; //8085223c 0x28
@@ -31,8 +31,8 @@ class VSModeSelect : public MenuInteractable{ //ID 0x72
     //onButtonDeselect vtable = 0x808bd1a4 function = 80852b18
     //onBackPress      vtable = 0x808bd198 function = 80852b1c
     //onStartPress     vtable = 0x808bd198 offset = 0x7c call is virtual
-    
+
 }; //0x6c4
-static_assert(sizeof(VSModeSelect) == 0x6c4, "VSTeamSelect");
+size_assert(VSModeSelect, 0x6c4);
 }//namespace Pages
 #endif

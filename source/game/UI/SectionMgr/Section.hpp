@@ -11,7 +11,6 @@
 #include <game/Scene/BaseScene.hpp>
 
 
-
 class Section {
 public:
     Section(); //80621d0c
@@ -50,11 +49,6 @@ public:
     static const char *GetPageName(PageId id); //80631bf0 doesn't seem to work
     static const char *GetSectionName(SectionId id); //80631c00 same
     static u32 GetSoundId(SectionId sectionId); //80631c68
-    
-    
-
-
-
 
 
     SectionId sectionId;
@@ -68,8 +62,8 @@ public:
     bool pauseGame;
     bool controllerDcPause;
     bool isPaused;
-	u8 unknown_0x38C[0x390 - 0x38C];
-	nw4r::lyt::DrawInfo drawInfo; //0x390
+    u8 unknown_0x38C[0x390 - 0x38C];
+    nw4r::lyt::DrawInfo drawInfo; //0x390
     EGG::Allocator *layoutAllocator; //0x3e4
     LayoutResourceAccessorList *resourceAccessorList; //0x3E8
     PictureLayoutList *pictureLayoutList; //0x3EC every time a picturelayout is created, the game checks if the brlyt isn't already loaded
@@ -79,9 +73,9 @@ public:
     FriendList *friendList; //0x404
 
     template<class T>
-    T* Get(PageId id) const {return (T*) this->pages[id];}
-    void Set(Page *t, PageId id) {this->pages[id] = t;}
+    T *Get(PageId id) const { return (T *)this->pages[id]; }
+    void Set(Page *t, PageId id) { this->pages[id] = t; }
 };//Total Size 0x408
-static_assert(sizeof(Section) == 0x408, "Section");
+size_assert(Section, 0x408);
 
 #endif

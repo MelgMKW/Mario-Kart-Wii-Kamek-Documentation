@@ -2,13 +2,13 @@
 #define _POTI_
 #include <game/KMP/SectionBase.hpp>
 
-struct POTIPoint{
+struct POTIPoint {
     Vec3 position;
     u16 settings[2]; //0x10 speed and then object specific setting
 };
 
 
-struct POTI{ //routes
+struct POTI { //routes
     u16 pointCount;
     bool isCurved;
     bool isNotCyclic;

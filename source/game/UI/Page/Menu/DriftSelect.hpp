@@ -12,8 +12,8 @@ Contributors:
 */
 
 //_sinit_ at 8084e848
-namespace Pages{
-class DriftSelect: public MenuInteractable { //ID 0x6D
+namespace Pages {
+class DriftSelect : public MenuInteractable { //ID 0x6D
 public:
     DriftSelect(); //806273cc
     ~DriftSelect() override; //8084E7BC vtable 808d9db0
@@ -43,6 +43,6 @@ public:
     CountDown *timer; //0x6C4
     SectionId sectionId;
 }; //Total Size 0x6CC
-static_assert(sizeof(DriftSelect) == 0x6CC,"DriftSelect");
+size_assert(DriftSelect, 0x6CC);
 }//namespace Pages
 #endif

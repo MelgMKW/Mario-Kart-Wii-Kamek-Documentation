@@ -5,8 +5,8 @@
 #include <game/UI/Ctrl/MessageWindowControl.hpp>
 
 //_sinit_ at 8064fba8
-namespace Pages{
-class RaceEndWait : public Page{ //ID 0x48 "Please wait a moment" at the end of online races
+namespace Pages {
+class RaceEndWait : public Page { //ID 0x48 "Please wait a moment" at the end of online races
 public:
     RaceEndWait(); //8064f168
     ~RaceEndWait() override; //8064f1b4 vtable 808c0200
@@ -18,9 +18,9 @@ public:
     SimpleMessageWindowControl msgWindow; //0x54
     u32 state; //0x1c8 0 nothing, 1 isDisplayingText? unsure
 }; //total size 0x1cc
-static_assert(sizeof(RaceEndWait) == 0x1cc, "RaceEndWait");
+size_assert(RaceEndWait, 0x1cc);
 
-class DisableHomeButton : public Page{ //ID 0x94 used in online races
+class DisableHomeButton : public Page { //ID 0x94 used in online races
 public:
     DisableHomeButton(); //8064f9d8
     ~DisableHomeButton() override; //8064fa1c vtable 808c019c
@@ -29,7 +29,7 @@ public:
     int GetRuntimeTypeInfo() const override; //0x60 8064fae8
     ManipulatorManager manipulatorManager; //0x44
 }; //total size 0x54
-static_assert(sizeof(DisableHomeButton) == 0x54, "DisableHomeButton");
+size_assert(DisableHomeButton, 0x54);
 
 }//namespace Pages
 #endif

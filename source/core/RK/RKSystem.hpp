@@ -1,6 +1,6 @@
 #ifndef _RKSYSTEM_
 #define _RKSYSTEM_
-#include "types.hpp"
+#include <types.hpp>
 #include <core/egg/mem/ExpHeap.hpp>
 #include <core/egg/Audio.hpp>
 #include <core/egg/ProcessMeter.hpp>
@@ -11,12 +11,12 @@
 class GXRModeObj;
 class SectionManager;
 
-struct Video{
+struct Video {
     GXRModeObj *mode;
     u32 unknown[2];
 };//total size 0xc
 
-class RKSystem{
+class RKSystem {
 public:
     static RKSystem mInstance; //802a4080
     static RKSystem *sInstance; //80385fc8
@@ -33,7 +33,7 @@ public:
     void *MEM1ArenaLo;
     void *MEM1ArenaHi;
     void *MEM2ArenaLo;
-    void *MEM2ArenaHi;    
+    void *MEM2ArenaHi;
     u32 memorySize; //0x14
     EGG::ExpHeap *EGGRootMEM1; //0x18
     EGG::ExpHeap *EGGRootMEM2;  //0x1C
@@ -58,6 +58,6 @@ public:
     u8 frameClock;
     u8 unknown_0x68;
     bool drawFrame;
-    u8 unknown_0x6b[0x74-0x6b];
+    u8 unknown_0x6b[0x74 - 0x6b];
 }; //total size 0x74
 #endif

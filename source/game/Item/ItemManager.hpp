@@ -1,4 +1,4 @@
-/* 
+/*
 Stebler, CLF (main documentation), Melg
 */
 #ifndef _ITEMMANAGER_
@@ -33,12 +33,12 @@ public:
     u8 unknown_0x11[3];
     ItemPlayer *players; //0x14
     ItemPlayer *otherLocalOnlinePlayersplayer[12];
-    ItemObjHolder itemObjolders[0xF]; //One per bodyId 0x48
+    ItemObjHolder itemObjolders[0xF]; //One per objId 0x48
     ItemObj *curItemObj[16]; //0x264
     ItemObjBase dummyObj; //base one? dummy?
-    u8 unknown_0x418[0x430-0x418];
+    u8 unknown_0x418[0x430 - 0x418];
 };//Total Size 0x430
-static_assert(sizeof(ItemManager) == 0x430, "ItemManager");
+size_assert(ItemManager, 0x430);
 
 
 

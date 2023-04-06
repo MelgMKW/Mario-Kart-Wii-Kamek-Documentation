@@ -2,8 +2,8 @@
 #include <game/UI/Page/Menu/Menu.hpp>
 #ifndef _MAINMENU_
 #define _MAINMENU_
-namespace Pages{
-class MainMenu : public MenuInteractable{ //ID 0x5a
+namespace Pages {
+class MainMenu : public MenuInteractable { //ID 0x5a
     MainMenu(); //80625da0
     ~MainMenu() override; //80851c94 vtable 808da0a0 
     void OnInit() override; //0x28 808503dc
@@ -40,6 +40,6 @@ class MainMenu : public MenuInteractable{ //ID 0x5a
     PushButton *fileAdminCopy; //0xcb0
     PushButton *fileAdmin; //license settings most likely
 }; //total size 0cb8
-static_assert(sizeof(MainMenu) == 0xcb8, "MainMenu");
+size_assert(MainMenu, 0xcb8);
 }//namespace Pages
 #endif

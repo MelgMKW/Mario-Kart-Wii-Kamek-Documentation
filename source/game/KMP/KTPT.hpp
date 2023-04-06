@@ -2,7 +2,7 @@
 #define _KTPT_
 #include <game/KMP/SectionBase.hpp>
 
-struct KTPT{ 
+struct KTPT {
     Vec3 position;
     Vec3 rotation;
     u16 playerId;

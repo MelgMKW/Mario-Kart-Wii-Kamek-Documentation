@@ -4,7 +4,7 @@
 #include <game/System/Identifiers.hpp>
 //https://wiki.tockdom.com/wiki/MKWii_Network_Protocol/SELECT
 
-enum OnlineMode{
+enum OnlineMode {
     ONLINEMODE_PUBLIC_VS = 0x1,
     ONLINEMODE_PUBLIC_BATTLE = 0x2,
     ONLINEMODE_PRIVATE_VS = 0x3,
@@ -16,7 +16,7 @@ enum OnlineMode{
 //2 80662290
 //3 80662588
 
-struct SELECTPlayerData{
+struct SELECTPlayerData {
     u16 prevRaceRank;
     u16 sumPoints;
     u8 character;
@@ -24,15 +24,15 @@ struct SELECTPlayerData{
     u8 courseVote;
     u8 starRank;
 }; //total size 0x8
-static_assert(sizeof(SELECTPlayerData) == 0x8, "SELECTPlayerData");
+size_assert(SELECTPlayerData, 0x8);
 
 #pragma pack(push, 1)
-struct SELECTTeam{
+struct SELECTTeam {
     u8 team : 2;
 }; //2 bits
 #pragma pack(pop)
 
-struct SELECTPacket{
+struct SELECTPacket {
     u64 timeSender;
     u64 timeReceived;
     SELECTPlayerData playersData[2]; //0x10
@@ -45,10 +45,10 @@ struct SELECTPacket{
     u8 winningVoterAid; //0x36
     u8 engineClass; //0x37 none, 100, 150, mirror
 }; //total size 0x38
-static_assert(sizeof(SELECTPacket) == 0x38, "SELECTPacket");
+size_assert(SELECTPacket, 0x38);
 
 
-class RKNetSELECTHandler{
+class RKNetSELECTHandler {
 public:
     static RKNetSELECTHandler *sInstance; //0x809c2100
     static RKNetSELECTHandler *GetStaticInstance(OnlineMode mode); //8065fe8c
@@ -74,7 +74,7 @@ public:
     bool HasUnprocessedRecvPackets(); //8066068c
     bool IsPrepared(); //80660710 checks if in phase 0
     void AllocatePlayerIdsToAids(); //80662034
-    
+
     OnlineMode mode; //from page 0x90 OnInit SectionId Switch
     u32 unknown_0x4;
     SELECTPacket toSendPacket; //0x8
@@ -92,6 +92,6 @@ public:
     u32 hasVoted; //0x3f0
     u8 unknown_0x3F4[4];
 }; //total size 0x3F8
-static_assert(sizeof(RKNetSELECTHandler) == 0x3F8, "RKNetSELECTHandler");
+size_assert(RKNetSELECTHandler, 0x3F8);
 
 #endif

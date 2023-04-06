@@ -13,8 +13,8 @@ Contributors:
 */
 
 //_sinit_ at 8084ba10
-namespace Pages{
-class MultiDriftSelect : public MenuInteractable{ //ID 0x82
+namespace Pages {
+class MultiDriftSelect : public MenuInteractable { //ID 0x82
 public:
     MultiDriftSelect(); //8062b8bc
     ~MultiDriftSelect() override; //8084b984 vtable 808d9bc8
@@ -51,7 +51,7 @@ public:
     u32 unknown_0x6cc;
 
 };
-static_assert(sizeof(MultiDriftSelect) == 0x6d0, "MultiDriftSelect");
+size_assert(MultiDriftSelect, 0x6d0);
 }//namespace Pages
 /* controlGroup:
 index 0 = CharaName (MachineSelectName.brctr)

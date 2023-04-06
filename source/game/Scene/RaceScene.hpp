@@ -3,7 +3,7 @@
 #include <game/Scene/BaseScene.hpp>
 #include <core/nw4r/ut/RomFont.hpp>
 
-class RaceScene : public GameScene{
+class RaceScene : public GameScene {
 public:
     static void UpdateRaceInstances(); //80554ad4 "main_race_update"
     static void UpdateSomeInstances(); //80554d90 inlined SectionMgr but also 809c496c and 809c1f50

@@ -12,7 +12,7 @@ Contributors:
 -Melg
 */
 //_sinit_ at 80651bec
-enum CountDownPageStatus{
+enum CountDownPageStatus {
     COUNTDOWN_STATUS_WAITING = 0x2,
     COUNTDOWN_STATUS_VR_PAGE,
     COUNTDOWN_STATUS_CUP_SELECT,
@@ -22,7 +22,7 @@ enum CountDownPageStatus{
     COUNTDOWN_STATUS_DISCONNECT_MSG = 0x8
 };
 
-struct PlayerInfo{
+struct PlayerInfo {
     u8 aid; //shared by players on the same console
     u8 hudSlotid; //0 for P1, 1 for P2 on the same console etc....
     u8 unknown_0x2[2]; //never stored likely padding
@@ -31,7 +31,7 @@ struct PlayerInfo{
     u16 randomThing2; //80651a20, very similar, but uses a different address to start the operations
 };//total size0xC
 
-namespace Pages{
+namespace Pages {
 class CountDownTimer : public Page { //ID 0x90
 public:
     CountDownTimer(); //8064fbdc 
@@ -45,7 +45,7 @@ public:
     void AfterControlUpdate() override; //0x4c 80650274
     void OnResume() override; //0x54 806507a0
     int GetRuntimeTypeInfo() const override; //0x60 80651bb0
-    int GetOnlineMode() const; 
+    int GetOnlineMode() const;
     bool IsPublicBattle(); //80650af4
     u8 GetPlayerId(u8 aid, u8 hudSlotId); //80650ddc
     u32 GetInstructionBmgId() const; //80650be0
@@ -55,8 +55,8 @@ public:
     void UpdateFriendParams(); //806515cc to rename
     void OnDisconnect(MessageBox *messageBox); //806517b0
     void SetModeTypes(); //80651854 from RKNetSELECT
-    static void TriggerPtmf(PtmfHolder_1A<CountDownTimer, void, MessageBox*>, MessageBox*); //80651bbc
-    PtmfHolder_1A<CountDownTimer, void, MessageBox*> onDisconnectHandler; //0x44, 0x806517b0, selects next page
+    static void TriggerPtmf(PtmfHolder_1A<CountDownTimer, void, MessageBox *>, MessageBox *); //80651bbc
+    PtmfHolder_1A<CountDownTimer, void, MessageBox *> onDisconnectHandler; //0x44, 0x806517b0, selects next page
     ManipulatorManager manipulatorManager;
     CountDownPageStatus status; //0x68
     CountDown countdown; //0x6C
@@ -68,7 +68,7 @@ public:
     MiiGroup miiGroup; //0x290
 }; //total size 0x328
 
-static_assert(sizeof(CountDownTimer) == 0x328, "CountDownTimer");
+size_assert(CountDownTimer, 0x328);
 }//namespace Pages
 #endif
 
@@ -81,7 +81,7 @@ static_assert(sizeof(CountDownTimer) == 0x328, "CountDownTimer");
 
 /*BeforeControlUpdate
 Updates countdown
-Animates countdowntimercountrol 
+Animates countdowntimercountrol
 */
 
 /*AfterControlUpdate
@@ -107,12 +107,12 @@ if it is:
                         update status to 1
 if 1:
  checks if duration > 600
-does stuff with miis, updates status to 2             
+does stuff with miis, updates status to 2
 */
 
 /*OnResume
 Checks status:
-if 2: 
+if 2:
     model renderer page 805f57b8
     currentRaceNumber mgr98:
     if 0 add VRPage, update status to 3

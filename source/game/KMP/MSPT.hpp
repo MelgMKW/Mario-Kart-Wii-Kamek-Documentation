@@ -2,7 +2,7 @@
 #define _MSPT_
 #include <game/KMP/SectionBase.hpp>
 
-struct MSPT{
+struct MSPT {
     Vec3 position;
     Vec3 angle;
     u16 id;

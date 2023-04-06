@@ -18,10 +18,10 @@ public:
     void DisplayName(u8 id); //807f52f4
     void DisplayFinishTime(u8 id); //807f595c
     u8 id; //0x174 top row will have id 0 for example
-    u8 unknown_0x175[0x180-0x175];
+    u8 unknown_0x175[0x180 - 0x175];
     float timer;
-    u8 unknown_0x184[0x190-0x184];
+    u8 unknown_0x184[0x190 - 0x184];
     u8 hudSlotId; //0x190
-    u8 unknown_0x191[0x198-0x191];
+    u8 unknown_0x191[0x198 - 0x191];
 };//total size 0x198
 #endif

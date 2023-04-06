@@ -4,8 +4,8 @@
 #include <game/UI/Page/Menu/Menu.hpp>
 
 //_sinit_ at 8083bb38
-namespace Pages{
-class BattleModeSelect : public MenuInteractable{ //ID 0x75
+namespace Pages {
+class BattleModeSelect : public MenuInteractable { //ID 0x75
     BattleModeSelect(); //80628b84
     ~BattleModeSelect() override; //8083baac vtable 808d9008
     void OnInit() override; //8083b1f0 0x28
@@ -34,7 +34,7 @@ class BattleModeSelect : public MenuInteractable{ //ID 0x75
 
 
 }; //total size 0x6c4
-static_assert(sizeof(BattleModeSelect) == 0x6c4,"BattleModeSelect");
+size_assert(BattleModeSelect, 0x6c4);
 }//namespace Pages
 
 #endif

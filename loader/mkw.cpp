@@ -70,7 +70,7 @@ void loadIntoMKW()
 	}
 
 	char path[64];
-	funcs->sprintf(path, "/kamek/%c.bin", region);
+	funcs->sprintf(path, "/Pulsar/%c.bin", region);
 	loadKamekBinaryFromDisc(funcs, path);
     
     return;

@@ -15,10 +15,10 @@
 #define kmIdentifier(key, counter) \
 	_k##key##counter
 #ifndef __INTELLISENSE__
-    #define kmHookInt(counter) \
+#define kmHookInt(counter) \
         __declspec (section ".kamek") static const u32 kmIdentifier(Hook, counter)
 #else
-    #define kmHookInt(counter) \
+#define kmHookInt(counter) \
         static const u32 kmIdentifier(Hook, counter)
 #endif
 
@@ -63,7 +63,7 @@
 //   Set up a branch (b) from a specific instruction to a function defined
 //   directly underneath. If exitPoint is not NULL, the function will
 //   branch to exitPoint when done; otherwise, it executes blr as normal
-	#define kmBranchDefInt(counter, addr, exitPoint, returnType, ...) \
+#define kmBranchDefInt(counter, addr, exitPoint, returnType, ...) \
 		static returnType kmIdentifier(UserFunc, counter) (__VA_ARGS__); \
 		kmBranch(addr, kmIdentifier(UserFunc, counter)); \
 		kmPatchExitPoint(kmIdentifier(UserFunc, counter), exitPoint); \
@@ -86,7 +86,7 @@
 	kmCallDefInt(__COUNTER__, addr, returnType, __VA_ARGS__)
 #define kmCallDefAsm(addr) \
 	kmCallDefInt(__COUNTER__, addr, asm void, )
-    
+
 #define kmOnLoad(func) \
     static int kmIdentifier(Int, counter) = func()
 
@@ -104,21 +104,25 @@
 //Custom Hooks
 extern char gameID[4];
 template <u32 address, u32 instruction, char region>
-int PatchRegion(){
-    if(gameID[3] == region){
-		register u32 *addressPtr = (u32*) address;
+int PatchRegion() {
+    if (gameID[3] == region) {
+        register u32 *addressPtr = (u32 *)address;
         *addressPtr = instruction;
-	    asm {
-	    	ASM(
-	    	dcbst 0, addressPtr;
-	    	sync;
-	    	icbi 0, addressPtr;
-	    	)
-	    }
-	}
+        asm{
+            ASM(
+            dcbst 0, addressPtr;
+            sync;
+            icbi 0, addressPtr;
+            )
+        }
+    }
     return 0;
 }
 #define kmWriteRegionInstruction(address, instruction, region) \
 	static int kmIdentifier(Int, __COUNTER__) = PatchRegion<address, instruction, region>()
+
+#define kmWrite24(address, instruction) \
+	kmWrite16(address, (instruction & 0xFFFF00) >> 0x8); \
+	kmWrite8(address + 0x2, instruction & 0xFF);
 
 #endif

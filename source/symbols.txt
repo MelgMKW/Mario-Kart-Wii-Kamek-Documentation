@@ -87,12 +87,13 @@ PPCMfmsr__Fv = 0x8012e564
 #DVD
 DVDConvertPathToEntryNum = 0x8015DF4C
 DVDOpen = 0x8015e2bc
+DVDFastOpen = 0x8015e254
 DVDClose = 0x8015e568
-DVDReadPrio__15DVDCommandBlockFPvUiUiUi = 0x8015e834
+DVDReadPrio = 0x8015e834
 
 
 #ISFS
-ReadDir__4ISFSFPcPvPUi = 0x8016a05c
+ReadDir__4ISFSFPCcPvPUi = 0x8016a05c
 CreateDir__4ISFSFPCcUcQ23IOS4ModeQ23IOS4ModeQ23IOS4Mode = 0x80169e74
 Delete__4ISFSFPc = 0x8016a78c
 CreateFile__4ISFSFPCcUcQ23IOS4ModeQ23IOS4ModeQ23IOS4Mode = 0x8016ac74
@@ -142,6 +143,13 @@ OSRestoreInterrupts = 0x801a65d4
 OSGetCurrentContext = 0x801a1ecc
 OSDisableScheduler = 0x801a98ec
 OSSendMessage = 0x801a735c
+OSYieldThread = 0x801a9e48
+OSResumeThread = 0x801aa58c
+SelectThread = 0x801a9c08
+OSSleepThread = 0x801aa9b8
+OSDetachThread = 0x801aa4ec
+OSCancelThread = 0x801aa1d4
+current__8OSThread = 0x800000e4
 
 __nw__FUl = 0x80229dcc
  __nwa__FUl = 0x80229df0
@@ -169,6 +177,11 @@ GetPtr__Q34nw4r2ef10HandleBaseCFv = 0x800375f0
 
 #ut
 Seek__Q34nw4r2ut13DvdFileStreamFUiUi = 0x800b05e0
+List_Remove__Q24nw4r2utFPQ34nw4r2ut4ListPv = 0x800af110
+List_GetNth__Q24nw4r2utFPCQ34nw4r2ut4ListUs = 0x800af1c0
+List_GetNext__Q24nw4r2utFPCQ34nw4r2ut4ListPv = 0x800af180
+List_Append__Q24nw4r2utFPQ34nw4r2ut4ListPv = 0x800aef80
+List_Insert__Q24nw4r2utFPQ34nw4r2ut4ListPvPv = 0x800aeff0
 
 #lyt
 __vt__Q34nw4r3lyt6Layout = 0x802734c0
@@ -193,8 +206,10 @@ mInstance__8RKSystem = 0x802a4080
 #Math
 Mult__Q23EGG5QuatfFRCQ23EGG5QuatfRCQ23EGG8Vector3fRQ23EGG5Quatf = 0x8023a540
 
+#DVDRipper
+LoadToMainRam__Q23EGG9DvdRipperFPCcPvPQ23EGG4HeapUiUiPUiPUi = 0x802226d8
+
 #Heap
-LoadToMainRam__3EGGFPcPvPQ23EGG4HeapUiUiUiPUi = 0x802226d8
 alloc__Q23EGG4HeapFUiiPQ23EGG4Heap = 0x80229814
 free__Q23EGG4HeapFPvPQ23EGG4Heap = 0x80229b84
 BecomeCurrentHeap__Q23EGG4HeapFv = 0x80229d74
@@ -236,6 +251,9 @@ OnExit__Q23EGG6ThreadFv = 0x80008e7c
 #TaskThread
 Create__Q23EGG10TaskThreadFiiUiPQ23EGG4Heap = 0x802428e8
 Request__Q23EGG10TaskThreadFPFPv_vPvUi = 0x80242c18
+
+#Scene
+GetCurrent__9GameSceneFv = 0x8051bed0
 
 #KMP
 sInstance__Q23KMP10Controller = 0x809BD6E8
@@ -303,6 +321,9 @@ NextLimited__6RandomFi = 0x805555cc
 nextFloat__6RandomFv = 0x80555628
 nextFloatLimited__6RandomFf = 0x805556a8
 
+#Model Director
+BindBRRES__13ModelDirectorFRQ34nw4r3g3d7ResFile13ArchiveSourcePCc = 0x8055b618
+LinkAnimation__13ModelDirectorFUiPQ34nw4r3g3d7ResFilePCc7AnmTypebPCc13ArchiveSourceUc = 0x8055ddec
 
 #Mii
 #MiiHeadsModel
@@ -340,6 +361,7 @@ Compute__11StatsAndBspF6KartId11CharacterId= 0x80591fa4
 Update__18WheelPhysicsHolderFfP4Vec3P5Mtx34 = 0x8059a278
 
 #KartMovement
+ApplyLightningEffect__12KartMovementFiii = 0x80580778
 Update__9KartBoostFPb = 0x80588e24
 
 #KartStatus
@@ -358,11 +380,11 @@ dtMainLayout = 0x805e8630
 GetPaneByName__10BaseLayoutCFPCc = 0x805e8368
 
 #BMGHolder
-BMGHolder = 0x805f8b34
-dtBMGHolder = 0x805f8b50
+__ct__9BMGHolderFv = 0x805f8b34
+__dt__9BMGHolderFv = 0x805f8b50
 GetMsgId__8BMGHolderFi = 0x805f8c88
+Init__9BMGHolderFP9BMGHeader = 0x805f8c00
 loadBmgFile         =0x805f8b90
-processBmgFile      =0x805f8c00
 getMessageByIdx     =0x805f8cf0
 getMessageFlags     =0x805f8d2c
 
@@ -427,7 +449,7 @@ PlayAnimationAtPercent__14AnimationGroupFUif = 0x8063ca98
 sInstance__10SectionMgr = 0x809c1e38
 SetupSectionLoad = 0x805b9344
 LoadSection__10SectionMgrFv = 0x80634fbc
-RequestSceneChange__10SectionMgrFUiQ34nw4r2ut5Color = 0x80635ac8
+RequestSceneChange__10SectionMgrFUiUi = 0x80635ac8
 
 #SectionMgrPad
 GetCurrentSlotAndType__10SectionPadFUi = 0x8061b358
@@ -613,6 +635,9 @@ __vt__23CtrlMenuInstructionText = 0x808d3698
 __dt__23CtrlMenuInstructionTextFv = 0x805c00c0
 Load__23CtrlMenuInstructionTextFv = 0x807e9904
 
+#PressStart
+Load__18CtrlMenuPressStartFv = 0x807e9cd0
+
 #TextInfo
 __ct__8TextInfoFv = 0x805cd94c
 
@@ -659,7 +684,7 @@ HasStarted__24CtrlRaceWifiStartMessageFv = 0x807F8BA4
 DisplayFinishTime__14CtrlRaceResultFUc = 0x807f595c
 
 #Votes
-DisplayVotes__11VoteControlFbUiP8MiiGroupUibUi = 0x80642ca4 
+Fill__11VoteControlFbUiP8MiiGroupUibUi = 0x80642ca4 
 SetVotedCourseId__Q25Pages4VoteF8CourseId = 0x80643f48
 
 #Page
@@ -705,6 +730,13 @@ AfterControlUpdate__Q25Pages10FriendRoomFv = 0x805d8508
 OnResume__Q25Pages10FriendRoomFv = 0x805d8c98
 GetRuntimeTypeInfo__Q25Pages10FriendRoomCFv = 0x805de890
 OnButtonSelect__Q25Pages10FriendRoomFP10PushButtonUi = 0x805d92a0
+
+#FriendRoomManagerPage
+GetMessageBmg__Q25Pages17FriendRoomManagerFP10ROOMPacketUi = 0x805dacb0
+
+#FriendRoomMessages
+OnModeButtonClick__Q25Pages18FriendRoomMessagesFP10PushButtonUi = 0x805dcd78
+
 
 #MenuPage
 __vt__Q25Pages4Menu = 0x808d8d78
@@ -806,6 +838,7 @@ LoadNextPage__Q25Pages9CupSelectFP20CtrlMenuCupSelectCupP10PushButtonUi = 0x8084
 UpdateTrackList__23CtrlMenuCupSelectCourseFUi = 0x807e5ff0
 OnBackPress__Q25Pages9CupSelectFUi = 0x80841b54
 idxToCourseId__Q25Pages9CupSelect = 0x808ad320
+cupTPLs__Q25Pages9CupSelect = 0x808AF8E0
 
 
 #course select
@@ -981,6 +1014,7 @@ Patch_AuthServerOverride = 0x800ecaac
 Patch_HostHeader = 0x800ed868
 DWC_AuthServer = 0x80386338
 SSL_Initialised = 0x80386d4c
+loginRegion__3DWC = 0x80384fd0
 
 
 #Effects
@@ -1011,12 +1045,11 @@ trackToMusicIDTable__12RaceAudioMgr = 0x808a1d80
 sInstance__16RSARSoundsPlayer = 0x809c2850
 PlayEndRaceMenuButtonClickSound__20RaceRSARSoundsPlayerFv = 0x80715ff0
 
-#GLOBALRACEPARAMS
-sInstance__16GlobalRaceParams = 0x809c23f8
-isOnlineRace__16GlobalRaceParams = 0x809c38b9
+#KartModelsMgr
+sInstance__13KartModelsMgr = 0x809c23f8
+isOnlineRace__13KartModelsMgr = 0x809c38b9
 
-#PlayerModel
-sInstance__11PlayerModel = 0x809c2f38
+#KartModel
 
 #Model
 sInstance__11CourseModel = 0x809c2F44
@@ -1038,6 +1071,10 @@ Update__15PlayerInventoryFv = 0x807bc6e8
 RemoveItems__15PlayerInventoryFUi = 0x807bc97c
 SetItem__15PlayerInventoryF6ItemIdUc = 0x807bc940
 
+#ItemObj
+CopyFromRel__17ItemObjPropertiesFP17ItemObjProperties = 0x80790e7c
+DeployBlooper__8GessoMgrFUc = 0x807a9128
+
 #Lakitu
 Update__16LakituControllerFv = 0x8071e6c0
 
@@ -1046,24 +1083,19 @@ sInstance__15RKNetController = 0x809c20d8
 sInstance__18RKNetSELECTHandler = 0x809c2100
 DestroyStaticInstance__18RKNetSELECTHandlerFv = 0x8065ff60
 Copy__12PacketHolderFPvUi = 0x8065a34c
-SetPlayerData__18RKNetSELECTHandlerF11CharacterId9kartId8CourseIdUcUc = 0x80660750
+SetPlayerData__18RKNetSELECTHandlerF11CharacterId6KartId8CourseIdUcUc = 0x80660750
 DecideTrack__18RKNetSELECTHandlerFv = 0x80661ce8
 GetWinningCourse__18RKNetSELECTHandlerCFv = 0x80660450
 DecideTeams__18RKNetSELECTHandlerFRUi = 0x80662588
 GetCourseVote__18RKNetSELECTHandlerCFUcUc = 0x80660574
 IsPrepared__18RKNetSELECTHandlerFv = 0x80660710
-SetPlayerData__18RKNetSELECTHandlerF11CharacterId6KartId8CourseIdUcUc = 0x80660750
 AllocatePlayerIdsToAids__18RKNetSELECTHandlerFv = 0x80662034
 
 #Objects
 Update__12ObjectHolderFv = 0x8082a8f4
 
 ##Rel
-LoadFromU8 = 0x805411fc
-ResFile_LoadFromU8 = 0x8055b618
-ApplyDamage = 0x805675dc
-ApplyTransparency = 0x80576b3c
-CopyItemOBJPropertiesFromRelToTable = 0x80790e7c
+
 DecideItem = 0x807bb42c		
 GetTrackBMGId = 0x80833668							   
 

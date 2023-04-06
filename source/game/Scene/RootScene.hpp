@@ -2,7 +2,7 @@
 #define _ROOTSCENE_
 #include <game/Scene/BaseScene.hpp>
 
-class RootScene : public BaseScene{
+class RootScene : public BaseScene {
 public:
     RootScene *sInstance; //0x809bd740
     RootScene(); //80542878
@@ -17,7 +17,7 @@ public:
 
     u8 unknown_0xc70[8];
     EGG::ExpHeap *audioHeap; //0xc78
-    u8 unknown_0xc7c[0xcd8-0xc7c]; //0xc7c
+    u8 unknown_0xc7c[0xcd8 - 0xc7c]; //0xc7c
 }; //0xcb8
 
 

@@ -5,7 +5,7 @@
 class UIControl;
 class Page;
 
-class ControlGroupAction{
+class ControlGroupAction {
     virtual void Calc(UIControl *control) = 0;
 };
 
@@ -31,7 +31,7 @@ public:
     u32 controlCount; //0x10
 };//Total Size 0x14
 
-static_assert(sizeof(ControlGroup) == 0x14,"ControlGroup");
+size_assert(ControlGroup, 0x14);
 
 
 

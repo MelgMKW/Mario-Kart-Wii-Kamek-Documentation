@@ -6,7 +6,7 @@
 
 
 //_sinit_ at 8084fc88
-namespace Pages{
+namespace Pages {
 class SinglePlayer : public MenuInteractable { //ID 0x69
 public:
     SinglePlayer(); //80626698
@@ -33,8 +33,8 @@ public:
     //onButtonDeselect vtable = 0x808bd204 function = 8084fb34
     //onBackPress      vtable = 0x808bd1f8 function = 8084fb38
     //onStartPress     vtable = 0x808bd1f8 offset = 0x7c call is virtual Handler
-    
+
 }; //total size 0x6c4
-static_assert(sizeof(SinglePlayer) == 0x6c4, "SinglePlayer");
+size_assert(SinglePlayer, 0x6c4);
 }//namespace Pages
 #endif

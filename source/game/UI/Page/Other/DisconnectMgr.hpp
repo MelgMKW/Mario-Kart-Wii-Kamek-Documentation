@@ -5,8 +5,8 @@
 
 
 //_sinit_ at 8064a094
-namespace Pages{
-class DisconnectMgr : public Page{ //ID 0x88, checks if disconnect has occured and changes section accordingly
+namespace Pages {
+class DisconnectMgr : public Page { //ID 0x88, checks if disconnect has occured and changes section accordingly
 public:
     DisconnectMgr(); //80649470
     ~DisconnectMgr() override; //806494bc vtable 808bfbb4
@@ -17,6 +17,6 @@ public:
     u8 status;
     u8 padding[3];
 }; //total size 0x58
-static_assert(sizeof(DisconnectMgr) == 0x58, "DisconnectMgr");
+size_assert(DisconnectMgr, 0x58);
 }//namespace Pages
 #endif

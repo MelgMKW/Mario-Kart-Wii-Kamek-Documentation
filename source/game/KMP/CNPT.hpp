@@ -2,7 +2,7 @@
 #define _CNPT_
 #include <game/KMP/SectionBase.hpp>
 
-struct CNPT{
+struct CNPT {
     Vec3 destPos;
     Vec3 angle;
     u16 id;
